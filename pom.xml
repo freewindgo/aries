@@ -25,6 +25,8 @@
 
         <springboot-version>1.5.4.RELEASE</springboot-version>
         <springcloud-version>Dalston.SR1</springcloud-version>
+
+        <druid-version>1.1.9</druid-version>
         <!--apache common-->
         <commons-lang3.version>3.4</commons-lang3.version>
 
