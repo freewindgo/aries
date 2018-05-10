@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/aries.iml" filepath="$PROJECT_DIR$/aries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aries-base/aries-base.iml" filepath="$PROJECT_DIR$/aries-base/aries-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aries-common/aries-common.iml" filepath="$PROJECT_DIR$/aries-common/aries-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aries-web/aries-web.iml" filepath="$PROJECT_DIR$/aries-web/aries-web.iml" />
+    </modules>
+  </component>
+</project>
