@@ -75,25 +75,27 @@ spring:
     name: aries-base
 
 #database
-datasource:
-- driver-class-name: com.mysql.jdbc.Driver
-  url: jdbc:mysql://47.97.163.100:3306/aries?useUnicode=true&characterEncoding=utf8
-  username: root
-  password: password
-  type: com.alibaba.druid.pool.DruidDataSource
-  filters: stat
-  maxActive: 20
-  initialSize: 1
-  maxWait: 60000
-  minIdle: 1
-  timeBetweenEvictionRunsMillis: 60000
-  minEvictableIdleTimeMillis: 300000
-  validationQuery: select 'x'
-  testWhileIdle: true
-  testOnBorrow: false
-  testOnReturn: false
-  poolPreparedStatements: true
-  maxOpenPreparedStatements: 20
+data-base-router:
+  enabled: true
+  single:
+  - driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.97.163.100:3306/aries?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: password
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
 
 mybatis:
   mapper-locations: classpath:com/cf/aries/base/dao/*.xml
