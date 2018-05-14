@@ -9,6 +9,7 @@ import com.cf.aries.common.util.Response;
  * @author 于文硕 yuwenshuo@passiontec.cn
  * @since 2018/5/11 13:49
  */
+
 public interface UserBusiness {
 
     Response saveUserInfo(UserInfo userInfo);

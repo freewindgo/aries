@@ -1,12 +1,14 @@
-package com.cf.aries.common.dbrouter.configure;
+package com.cf.aries.base.dbrouter.configure;
+
 
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.cf.aries.common.dbrouter.DatabaseManualRoute;
-import com.cf.aries.common.dbrouter.DatabaseRoute;
-import com.cf.aries.common.dbrouter.DatabaseRouteRegister;
-import com.cf.aries.common.dbrouter.interceptor.SplitInterceptor;
-import com.cf.aries.common.dbrouter.interceptor.TransactionalInterceptor;
+import com.cf.aries.base.dbrouter.DatabaseManualRoute;
+import com.cf.aries.base.dbrouter.DatabaseRoute;
+import com.cf.aries.base.dbrouter.DatabaseRouteRegister;
+import com.cf.aries.base.dbrouter.interceptor.SplitInterceptor;
+import com.cf.aries.base.dbrouter.interceptor.TransactionalInterceptor;
+import com.cf.aries.base.dbrouter.configure.DruidProperties.DataSourceConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -15,7 +17,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.cf.aries.common.dbrouter.configure.DruidProperties.DataSourceConfig;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -96,12 +97,12 @@ public class DruidAutoConfiguration {
     }
 
     private Map<Integer, DataSource> buildDataSourceMap(List<DataSourceConfig> sourceConfigs, int type) {
-        Map<Integer, DataSource> sourceMap = new HashMap();
+         Map<Integer, DataSource> sourceMap = new HashMap();
         if (sourceConfigs != null && !sourceConfigs.isEmpty()) {
             DataSourceConfig config = null;
 
             for(int i = 0; i < sourceConfigs.size(); ++i) {
-                config = (DataSourceConfig)sourceConfigs.get(i);
+                config = sourceConfigs.get(i);
                 if (type == 1) {
                     sourceMap.put(i + 100, this.buildDataSource(config));
                     String alias = config.getAlias();

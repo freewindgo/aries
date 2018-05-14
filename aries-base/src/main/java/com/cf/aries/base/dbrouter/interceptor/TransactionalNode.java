@@ -1,4 +1,4 @@
-package com.cf.aries.common.dbrouter.interceptor;
+package com.cf.aries.base.dbrouter.interceptor;
 
 import lombok.Getter;
 

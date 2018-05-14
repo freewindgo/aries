@@ -1,6 +1,6 @@
-package com.cf.aries.common.dbrouter.interceptor;
+package com.cf.aries.base.dbrouter.interceptor;
 
-import com.cf.aries.common.dbrouter.DatabaseRoute;
+import com.cf.aries.base.dbrouter.DatabaseRoute;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

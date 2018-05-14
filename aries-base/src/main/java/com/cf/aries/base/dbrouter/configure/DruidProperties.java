@@ -1,4 +1,4 @@
-package com.cf.aries.common.dbrouter.configure;
+package com.cf.aries.base.dbrouter.configure;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,28 +34,20 @@ public class DruidProperties {
         private String url;
         private String username;
         private String password;
+        private String type;
         private Boolean testWhileIdle = true;
-        private Boolean testOnBorrow;
+        private Boolean testOnReturn = false;
+        private Boolean testOnBorrow = false;
         private String validationQuery = "SELECT 1";
-        private Boolean useGlobalDataSourceStat;
         private String filters;
-        private Long timeBetweenLogStatsMillis;
-        private Integer maxSize;
-        private Boolean clearFiltersEnable;
-        private Boolean resetStatEnable;
-        private Integer notFullTimeoutRetryCount;
-        private Integer maxWaitThreadCount;
-        private Boolean failFast;
-        private Boolean phyTimeoutMillis;
         private Long minEvictableIdleTimeMillis = 300000L;
-        private Long maxEvictableIdleTimeMillis;
         private Integer initialSize = 5;
         private Integer minIdle = 5;
         private Integer maxActive = 20;
         private Long maxWait = 60000L;
         private Long timeBetweenEvictionRunsMillis = 60000L;
         private Boolean poolPreparedStatements = true;
-        private Integer maxPoolPreparedStatementPerConnectionSize = 20;
+        private Integer maxOpenPreparedStatements = 20;
 
     }
 

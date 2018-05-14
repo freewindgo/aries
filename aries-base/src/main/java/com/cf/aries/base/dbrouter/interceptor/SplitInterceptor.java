@@ -1,7 +1,7 @@
-package com.cf.aries.common.dbrouter.interceptor;
+package com.cf.aries.base.dbrouter.interceptor;
 
-import com.cf.aries.common.dbrouter.DatabaseRoute;
-import com.cf.aries.common.dbrouter.annotation.Split;
+import com.cf.aries.base.dbrouter.DatabaseRoute;
+import com.cf.aries.base.dbrouter.annotation.Split;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -51,7 +51,7 @@ public class SplitInterceptor implements Ordered {
                 log.debug("dbrouter key2:{},args:{}", key, point.getArgs());
             }
 
-            if (!((Boolean)DatabaseRoute._trans.get()).booleanValue()) {
+            if (!((Boolean) DatabaseRoute._trans.get()).booleanValue()) {
                 DatabaseRoute._select.set(key);
             } else if (!Objects.equals(key, DatabaseRoute._select.get())) {
                 throw new IllegalArgumentException(String.format("@Split transmit can not change. [%s] Call [%s]", ((SplitNode)((Stack)_stack.get()).lastElement()).getMethod(), method));
@@ -67,7 +67,7 @@ public class SplitInterceptor implements Ordered {
                 node = (SplitNode)stack.pop();
                 if (stack.empty()) {
                     DatabaseRoute._select.remove();
-                } else if (!((Boolean)DatabaseRoute._trans.get()).booleanValue()) {
+                } else if (!((Boolean) DatabaseRoute._trans.get()).booleanValue()) {
                     node = (SplitNode)stack.lastElement();
                     DatabaseRoute._select.set(node.getSplitKey());
                 }

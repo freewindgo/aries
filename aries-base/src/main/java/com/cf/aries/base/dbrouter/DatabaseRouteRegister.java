@@ -1,4 +1,4 @@
-package com.cf.aries.common.dbrouter;
+package com.cf.aries.base.dbrouter;
 
 import org.springframework.beans.BeanUtils;
 

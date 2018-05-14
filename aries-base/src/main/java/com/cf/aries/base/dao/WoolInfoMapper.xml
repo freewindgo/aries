@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cf.aries.base.dao.WoolInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.cf.aries.common.po.WoolInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="bank_id" property="bankId" jdbcType="INTEGER" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="wool_name" property="woolName" jdbcType="VARCHAR" />
+    <result column="wool_condition" property="woolCondition" jdbcType="VARCHAR" />
+    <result column="wool_content" property="woolContent" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="expire_day" property="expireDay" jdbcType="CHAR" />
+    <result column="ctime" property="ctime" jdbcType="CHAR" />
+    <result column="utime" property="utime" jdbcType="CHAR" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, bank_id, bank_name, wool_name, wool_condition, wool_content, user_id, expire_day, 
+    ctime, utime, is_delete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.WoolInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from wool_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from wool_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from wool_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cf.aries.common.po.WoolInfoExample" >
+    delete from wool_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cf.aries.common.po.WoolInfo" >
+    insert into wool_info (id, bank_id, bank_name, 
+      wool_name, wool_condition, wool_content, 
+      user_id, expire_day, ctime, 
+      utime, is_delete)
+    values (#{id,jdbcType=BIGINT}, #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, 
+      #{woolName,jdbcType=VARCHAR}, #{woolCondition,jdbcType=VARCHAR}, #{woolContent,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{expireDay,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, 
+      #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cf.aries.common.po.WoolInfo" >
+    insert into wool_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="bankId != null" >
+        bank_id,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="woolName != null" >
+        wool_name,
+      </if>
+      <if test="woolCondition != null" >
+        wool_condition,
+      </if>
+      <if test="woolContent != null" >
+        wool_content,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="expireDay != null" >
+        expire_day,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+      <if test="utime != null" >
+        utime,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="woolName != null" >
+        #{woolName,jdbcType=VARCHAR},
+      </if>
+      <if test="woolCondition != null" >
+        #{woolCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="woolContent != null" >
+        #{woolContent,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="expireDay != null" >
+        #{expireDay,jdbcType=CHAR},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=CHAR},
+      </if>
+      <if test="utime != null" >
+        #{utime,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cf.aries.common.po.WoolInfoExample" resultType="java.lang.Integer" >
+    select count(*) from wool_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update wool_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.bankId != null" >
+        bank_id = #{record.bankId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bankName != null" >
+        bank_name = #{record.bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.woolName != null" >
+        wool_name = #{record.woolName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.woolCondition != null" >
+        wool_condition = #{record.woolCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.woolContent != null" >
+        wool_content = #{record.woolContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.expireDay != null" >
+        expire_day = #{record.expireDay,jdbcType=CHAR},
+      </if>
+      <if test="record.ctime != null" >
+        ctime = #{record.ctime,jdbcType=CHAR},
+      </if>
+      <if test="record.utime != null" >
+        utime = #{record.utime,jdbcType=CHAR},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update wool_info
+    set id = #{record.id,jdbcType=BIGINT},
+      bank_id = #{record.bankId,jdbcType=INTEGER},
+      bank_name = #{record.bankName,jdbcType=VARCHAR},
+      wool_name = #{record.woolName,jdbcType=VARCHAR},
+      wool_condition = #{record.woolCondition,jdbcType=VARCHAR},
+      wool_content = #{record.woolContent,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      expire_day = #{record.expireDay,jdbcType=CHAR},
+      ctime = #{record.ctime,jdbcType=CHAR},
+      utime = #{record.utime,jdbcType=CHAR},
+      is_delete = #{record.isDelete,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cf.aries.common.po.WoolInfo" >
+    update wool_info
+    <set >
+      <if test="bankId != null" >
+        bank_id = #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="woolName != null" >
+        wool_name = #{woolName,jdbcType=VARCHAR},
+      </if>
+      <if test="woolCondition != null" >
+        wool_condition = #{woolCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="woolContent != null" >
+        wool_content = #{woolContent,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="expireDay != null" >
+        expire_day = #{expireDay,jdbcType=CHAR},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=CHAR},
+      </if>
+      <if test="utime != null" >
+        utime = #{utime,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cf.aries.common.po.WoolInfo" >
+    update wool_info
+    set bank_id = #{bankId,jdbcType=INTEGER},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      wool_name = #{woolName,jdbcType=VARCHAR},
+      wool_condition = #{woolCondition,jdbcType=VARCHAR},
+      wool_content = #{woolContent,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      expire_day = #{expireDay,jdbcType=CHAR},
+      ctime = #{ctime,jdbcType=CHAR},
+      utime = #{utime,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

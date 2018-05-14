@@ -1,4 +1,4 @@
-package com.cf.aries.common.dbrouter.annotation;
+package com.cf.aries.base.dbrouter.annotation;
 
 import java.lang.annotation.*;
 

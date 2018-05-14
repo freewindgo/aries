@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cf.aries.base.dao.CreditCardMapper" >
+  <resultMap id="BaseResultMap" type="com.cf.aries.common.po.CreditCard" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="card_no" property="cardNo" jdbcType="CHAR" />
+    <result column="card_name" property="cardName" jdbcType="VARCHAR" />
+    <result column="card_level" property="cardLevel" jdbcType="BIT" />
+    <result column="credit_limit" property="creditLimit" jdbcType="INTEGER" />
+    <result column="credit_temp_limit" property="creditTempLimit" jdbcType="INTEGER" />
+    <result column="credit_other_limit" property="creditOtherLimit" jdbcType="INTEGER" />
+    <result column="credit_total_limit" property="creditTotalLimit" jdbcType="INTEGER" />
+    <result column="bill_day" property="billDay" jdbcType="CHAR" />
+    <result column="pay_day" property="payDay" jdbcType="CHAR" />
+    <result column="bill_cycle" property="billCycle" jdbcType="TINYINT" />
+    <result column="remind_day" property="remindDay" jdbcType="BIT" />
+    <result column="expire_day" property="expireDay" jdbcType="CHAR" />
+    <result column="ctime" property="ctime" jdbcType="CHAR" />
+    <result column="utime" property="utime" jdbcType="CHAR" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, card_no, card_name, card_level, credit_limit, credit_temp_limit, credit_other_limit, 
+    credit_total_limit, bill_day, pay_day, bill_cycle, remind_day, expire_day, ctime, 
+    utime, is_delete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.CreditCardExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from credit_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from credit_card
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from credit_card
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cf.aries.common.po.CreditCardExample" >
+    delete from credit_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cf.aries.common.po.CreditCard" >
+    insert into credit_card (id, card_no, card_name, 
+      card_level, credit_limit, credit_temp_limit, 
+      credit_other_limit, credit_total_limit, bill_day, 
+      pay_day, bill_cycle, remind_day, 
+      expire_day, ctime, utime, is_delete
+      )
+    values (#{id,jdbcType=BIGINT}, #{cardNo,jdbcType=CHAR}, #{cardName,jdbcType=VARCHAR}, 
+      #{cardLevel,jdbcType=BIT}, #{creditLimit,jdbcType=INTEGER}, #{creditTempLimit,jdbcType=INTEGER}, 
+      #{creditOtherLimit,jdbcType=INTEGER}, #{creditTotalLimit,jdbcType=INTEGER}, #{billDay,jdbcType=CHAR}, 
+      #{payDay,jdbcType=CHAR}, #{billCycle,jdbcType=TINYINT}, #{remindDay,jdbcType=BIT}, 
+      #{expireDay,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cf.aries.common.po.CreditCard" >
+    insert into credit_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardNo != null" >
+        card_no,
+      </if>
+      <if test="cardName != null" >
+        card_name,
+      </if>
+      <if test="cardLevel != null" >
+        card_level,
+      </if>
+      <if test="creditLimit != null" >
+        credit_limit,
+      </if>
+      <if test="creditTempLimit != null" >
+        credit_temp_limit,
+      </if>
+      <if test="creditOtherLimit != null" >
+        credit_other_limit,
+      </if>
+      <if test="creditTotalLimit != null" >
+        credit_total_limit,
+      </if>
+      <if test="billDay != null" >
+        bill_day,
+      </if>
+      <if test="payDay != null" >
+        pay_day,
+      </if>
+      <if test="billCycle != null" >
+        bill_cycle,
+      </if>
+      <if test="remindDay != null" >
+        remind_day,
+      </if>
+      <if test="expireDay != null" >
+        expire_day,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+      <if test="utime != null" >
+        utime,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=CHAR},
+      </if>
+      <if test="cardName != null" >
+        #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardLevel != null" >
+        #{cardLevel,jdbcType=BIT},
+      </if>
+      <if test="creditLimit != null" >
+        #{creditLimit,jdbcType=INTEGER},
+      </if>
+      <if test="creditTempLimit != null" >
+        #{creditTempLimit,jdbcType=INTEGER},
+      </if>
+      <if test="creditOtherLimit != null" >
+        #{creditOtherLimit,jdbcType=INTEGER},
+      </if>
+      <if test="creditTotalLimit != null" >
+        #{creditTotalLimit,jdbcType=INTEGER},
+      </if>
+      <if test="billDay != null" >
+        #{billDay,jdbcType=CHAR},
+      </if>
+      <if test="payDay != null" >
+        #{payDay,jdbcType=CHAR},
+      </if>
+      <if test="billCycle != null" >
+        #{billCycle,jdbcType=TINYINT},
+      </if>
+      <if test="remindDay != null" >
+        #{remindDay,jdbcType=BIT},
+      </if>
+      <if test="expireDay != null" >
+        #{expireDay,jdbcType=CHAR},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=CHAR},
+      </if>
+      <if test="utime != null" >
+        #{utime,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cf.aries.common.po.CreditCardExample" resultType="java.lang.Integer" >
+    select count(*) from credit_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update credit_card
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.cardNo != null" >
+        card_no = #{record.cardNo,jdbcType=CHAR},
+      </if>
+      <if test="record.cardName != null" >
+        card_name = #{record.cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardLevel != null" >
+        card_level = #{record.cardLevel,jdbcType=BIT},
+      </if>
+      <if test="record.creditLimit != null" >
+        credit_limit = #{record.creditLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.creditTempLimit != null" >
+        credit_temp_limit = #{record.creditTempLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.creditOtherLimit != null" >
+        credit_other_limit = #{record.creditOtherLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.creditTotalLimit != null" >
+        credit_total_limit = #{record.creditTotalLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.billDay != null" >
+        bill_day = #{record.billDay,jdbcType=CHAR},
+      </if>
+      <if test="record.payDay != null" >
+        pay_day = #{record.payDay,jdbcType=CHAR},
+      </if>
+      <if test="record.billCycle != null" >
+        bill_cycle = #{record.billCycle,jdbcType=TINYINT},
+      </if>
+      <if test="record.remindDay != null" >
+        remind_day = #{record.remindDay,jdbcType=BIT},
+      </if>
+      <if test="record.expireDay != null" >
+        expire_day = #{record.expireDay,jdbcType=CHAR},
+      </if>
+      <if test="record.ctime != null" >
+        ctime = #{record.ctime,jdbcType=CHAR},
+      </if>
+      <if test="record.utime != null" >
+        utime = #{record.utime,jdbcType=CHAR},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update credit_card
+    set id = #{record.id,jdbcType=BIGINT},
+      card_no = #{record.cardNo,jdbcType=CHAR},
+      card_name = #{record.cardName,jdbcType=VARCHAR},
+      card_level = #{record.cardLevel,jdbcType=BIT},
+      credit_limit = #{record.creditLimit,jdbcType=INTEGER},
+      credit_temp_limit = #{record.creditTempLimit,jdbcType=INTEGER},
+      credit_other_limit = #{record.creditOtherLimit,jdbcType=INTEGER},
+      credit_total_limit = #{record.creditTotalLimit,jdbcType=INTEGER},
+      bill_day = #{record.billDay,jdbcType=CHAR},
+      pay_day = #{record.payDay,jdbcType=CHAR},
+      bill_cycle = #{record.billCycle,jdbcType=TINYINT},
+      remind_day = #{record.remindDay,jdbcType=BIT},
+      expire_day = #{record.expireDay,jdbcType=CHAR},
+      ctime = #{record.ctime,jdbcType=CHAR},
+      utime = #{record.utime,jdbcType=CHAR},
+      is_delete = #{record.isDelete,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cf.aries.common.po.CreditCard" >
+    update credit_card
+    <set >
+      <if test="cardNo != null" >
+        card_no = #{cardNo,jdbcType=CHAR},
+      </if>
+      <if test="cardName != null" >
+        card_name = #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardLevel != null" >
+        card_level = #{cardLevel,jdbcType=BIT},
+      </if>
+      <if test="creditLimit != null" >
+        credit_limit = #{creditLimit,jdbcType=INTEGER},
+      </if>
+      <if test="creditTempLimit != null" >
+        credit_temp_limit = #{creditTempLimit,jdbcType=INTEGER},
+      </if>
+      <if test="creditOtherLimit != null" >
+        credit_other_limit = #{creditOtherLimit,jdbcType=INTEGER},
+      </if>
+      <if test="creditTotalLimit != null" >
+        credit_total_limit = #{creditTotalLimit,jdbcType=INTEGER},
+      </if>
+      <if test="billDay != null" >
+        bill_day = #{billDay,jdbcType=CHAR},
+      </if>
+      <if test="payDay != null" >
+        pay_day = #{payDay,jdbcType=CHAR},
+      </if>
+      <if test="billCycle != null" >
+        bill_cycle = #{billCycle,jdbcType=TINYINT},
+      </if>
+      <if test="remindDay != null" >
+        remind_day = #{remindDay,jdbcType=BIT},
+      </if>
+      <if test="expireDay != null" >
+        expire_day = #{expireDay,jdbcType=CHAR},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=CHAR},
+      </if>
+      <if test="utime != null" >
+        utime = #{utime,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cf.aries.common.po.CreditCard" >
+    update credit_card
+    set card_no = #{cardNo,jdbcType=CHAR},
+      card_name = #{cardName,jdbcType=VARCHAR},
+      card_level = #{cardLevel,jdbcType=BIT},
+      credit_limit = #{creditLimit,jdbcType=INTEGER},
+      credit_temp_limit = #{creditTempLimit,jdbcType=INTEGER},
+      credit_other_limit = #{creditOtherLimit,jdbcType=INTEGER},
+      credit_total_limit = #{creditTotalLimit,jdbcType=INTEGER},
+      bill_day = #{billDay,jdbcType=CHAR},
+      pay_day = #{payDay,jdbcType=CHAR},
+      bill_cycle = #{billCycle,jdbcType=TINYINT},
+      remind_day = #{remindDay,jdbcType=BIT},
+      expire_day = #{expireDay,jdbcType=CHAR},
+      ctime = #{ctime,jdbcType=CHAR},
+      utime = #{utime,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

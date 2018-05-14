@@ -1,4 +1,4 @@
-package com.cf.aries.common.dbrouter;
+package com.cf.aries.base.dbrouter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

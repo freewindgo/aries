@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cf.aries.base.dao.ConsumeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.cf.aries.common.po.ConsumeInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="card_id" property="cardId" jdbcType="BIGINT" />
+    <result column="card_name" property="cardName" jdbcType="VARCHAR" />
+    <result column="bank_id" property="bankId" jdbcType="INTEGER" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime" jdbcType="CHAR" />
+    <result column="bill" property="bill" jdbcType="INTEGER" />
+    <result column="is_pay" property="isPay" jdbcType="BIT" />
+    <result column="month" property="month" jdbcType="CHAR" />
+    <result column="type" property="type" jdbcType="BIT" />
+    <result column="wool_cycle" property="woolCycle" jdbcType="INTEGER" />
+    <result column="wool_rate" property="woolRate" jdbcType="INTEGER" />
+    <result column="ctime" property="ctime" jdbcType="CHAR" />
+    <result column="utime" property="utime" jdbcType="CHAR" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, card_id, card_name, bank_id, bank_name, pay_time, bill, is_pay, month, type, 
+    wool_cycle, wool_rate, ctime, utime, is_delete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.ConsumeInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from consume_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from consume_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from consume_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cf.aries.common.po.ConsumeInfoExample" >
+    delete from consume_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cf.aries.common.po.ConsumeInfo" >
+    insert into consume_info (id, card_id, card_name, 
+      bank_id, bank_name, pay_time, 
+      bill, is_pay, month, type, 
+      wool_cycle, wool_rate, ctime, 
+      utime, is_delete)
+    values (#{id,jdbcType=BIGINT}, #{cardId,jdbcType=BIGINT}, #{cardName,jdbcType=VARCHAR}, 
+      #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, #{payTime,jdbcType=CHAR}, 
+      #{bill,jdbcType=INTEGER}, #{isPay,jdbcType=BIT}, #{month,jdbcType=CHAR}, #{type,jdbcType=BIT}, 
+      #{woolCycle,jdbcType=INTEGER}, #{woolRate,jdbcType=INTEGER}, #{ctime,jdbcType=CHAR}, 
+      #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cf.aries.common.po.ConsumeInfo" >
+    insert into consume_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="cardName != null" >
+        card_name,
+      </if>
+      <if test="bankId != null" >
+        bank_id,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="bill != null" >
+        bill,
+      </if>
+      <if test="isPay != null" >
+        is_pay,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="woolCycle != null" >
+        wool_cycle,
+      </if>
+      <if test="woolRate != null" >
+        wool_rate,
+      </if>
+      <if test="ctime != null" >
+        ctime,
+      </if>
+      <if test="utime != null" >
+        utime,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=BIGINT},
+      </if>
+      <if test="cardName != null" >
+        #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=CHAR},
+      </if>
+      <if test="bill != null" >
+        #{bill,jdbcType=INTEGER},
+      </if>
+      <if test="isPay != null" >
+        #{isPay,jdbcType=BIT},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=BIT},
+      </if>
+      <if test="woolCycle != null" >
+        #{woolCycle,jdbcType=INTEGER},
+      </if>
+      <if test="woolRate != null" >
+        #{woolRate,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        #{ctime,jdbcType=CHAR},
+      </if>
+      <if test="utime != null" >
+        #{utime,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cf.aries.common.po.ConsumeInfoExample" resultType="java.lang.Integer" >
+    select count(*) from consume_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update consume_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.cardId != null" >
+        card_id = #{record.cardId,jdbcType=BIGINT},
+      </if>
+      <if test="record.cardName != null" >
+        card_name = #{record.cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankId != null" >
+        bank_id = #{record.bankId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bankName != null" >
+        bank_name = #{record.bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payTime != null" >
+        pay_time = #{record.payTime,jdbcType=CHAR},
+      </if>
+      <if test="record.bill != null" >
+        bill = #{record.bill,jdbcType=INTEGER},
+      </if>
+      <if test="record.isPay != null" >
+        is_pay = #{record.isPay,jdbcType=BIT},
+      </if>
+      <if test="record.month != null" >
+        month = #{record.month,jdbcType=CHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=BIT},
+      </if>
+      <if test="record.woolCycle != null" >
+        wool_cycle = #{record.woolCycle,jdbcType=INTEGER},
+      </if>
+      <if test="record.woolRate != null" >
+        wool_rate = #{record.woolRate,jdbcType=INTEGER},
+      </if>
+      <if test="record.ctime != null" >
+        ctime = #{record.ctime,jdbcType=CHAR},
+      </if>
+      <if test="record.utime != null" >
+        utime = #{record.utime,jdbcType=CHAR},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update consume_info
+    set id = #{record.id,jdbcType=BIGINT},
+      card_id = #{record.cardId,jdbcType=BIGINT},
+      card_name = #{record.cardName,jdbcType=VARCHAR},
+      bank_id = #{record.bankId,jdbcType=INTEGER},
+      bank_name = #{record.bankName,jdbcType=VARCHAR},
+      pay_time = #{record.payTime,jdbcType=CHAR},
+      bill = #{record.bill,jdbcType=INTEGER},
+      is_pay = #{record.isPay,jdbcType=BIT},
+      month = #{record.month,jdbcType=CHAR},
+      type = #{record.type,jdbcType=BIT},
+      wool_cycle = #{record.woolCycle,jdbcType=INTEGER},
+      wool_rate = #{record.woolRate,jdbcType=INTEGER},
+      ctime = #{record.ctime,jdbcType=CHAR},
+      utime = #{record.utime,jdbcType=CHAR},
+      is_delete = #{record.isDelete,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cf.aries.common.po.ConsumeInfo" >
+    update consume_info
+    <set >
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=BIGINT},
+      </if>
+      <if test="cardName != null" >
+        card_name = #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+        bank_id = #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=CHAR},
+      </if>
+      <if test="bill != null" >
+        bill = #{bill,jdbcType=INTEGER},
+      </if>
+      <if test="isPay != null" >
+        is_pay = #{isPay,jdbcType=BIT},
+      </if>
+      <if test="month != null" >
+        month = #{month,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=BIT},
+      </if>
+      <if test="woolCycle != null" >
+        wool_cycle = #{woolCycle,jdbcType=INTEGER},
+      </if>
+      <if test="woolRate != null" >
+        wool_rate = #{woolRate,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null" >
+        ctime = #{ctime,jdbcType=CHAR},
+      </if>
+      <if test="utime != null" >
+        utime = #{utime,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cf.aries.common.po.ConsumeInfo" >
+    update consume_info
+    set card_id = #{cardId,jdbcType=BIGINT},
+      card_name = #{cardName,jdbcType=VARCHAR},
+      bank_id = #{bankId,jdbcType=INTEGER},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=CHAR},
+      bill = #{bill,jdbcType=INTEGER},
+      is_pay = #{isPay,jdbcType=BIT},
+      month = #{month,jdbcType=CHAR},
+      type = #{type,jdbcType=BIT},
+      wool_cycle = #{woolCycle,jdbcType=INTEGER},
+      wool_rate = #{woolRate,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=CHAR},
+      utime = #{utime,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
