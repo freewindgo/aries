@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="card_no" property="cardNo" jdbcType="CHAR" />
     <result column="card_name" property="cardName" jdbcType="VARCHAR" />
-    <result column="card_level" property="cardLevel" jdbcType="BIT" />
+    <result column="card_level" property="cardLevel" jdbcType="TINYINT" />
     <result column="credit_limit" property="creditLimit" jdbcType="INTEGER" />
     <result column="credit_temp_limit" property="creditTempLimit" jdbcType="INTEGER" />
     <result column="credit_other_limit" property="creditOtherLimit" jdbcType="INTEGER" />
@@ -13,11 +13,11 @@
     <result column="bill_day" property="billDay" jdbcType="CHAR" />
     <result column="pay_day" property="payDay" jdbcType="CHAR" />
     <result column="bill_cycle" property="billCycle" jdbcType="TINYINT" />
-    <result column="remind_day" property="remindDay" jdbcType="BIT" />
+    <result column="remind_day" property="remindDay" jdbcType="TINYINT" />
     <result column="expire_day" property="expireDay" jdbcType="CHAR" />
     <result column="ctime" property="ctime" jdbcType="CHAR" />
     <result column="utime" property="utime" jdbcType="CHAR" />
-    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -120,10 +120,10 @@
       expire_day, ctime, utime, is_delete
       )
     values (#{id,jdbcType=BIGINT}, #{cardNo,jdbcType=CHAR}, #{cardName,jdbcType=VARCHAR}, 
-      #{cardLevel,jdbcType=BIT}, #{creditLimit,jdbcType=INTEGER}, #{creditTempLimit,jdbcType=INTEGER}, 
+      #{cardLevel,jdbcType=TINYINT}, #{creditLimit,jdbcType=INTEGER}, #{creditTempLimit,jdbcType=INTEGER}, 
       #{creditOtherLimit,jdbcType=INTEGER}, #{creditTotalLimit,jdbcType=INTEGER}, #{billDay,jdbcType=CHAR}, 
-      #{payDay,jdbcType=CHAR}, #{billCycle,jdbcType=TINYINT}, #{remindDay,jdbcType=BIT}, 
-      #{expireDay,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=BIT}
+      #{payDay,jdbcType=CHAR}, #{billCycle,jdbcType=TINYINT}, #{remindDay,jdbcType=TINYINT}, 
+      #{expireDay,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.CreditCard" >
@@ -189,7 +189,7 @@
         #{cardName,jdbcType=VARCHAR},
       </if>
       <if test="cardLevel != null" >
-        #{cardLevel,jdbcType=BIT},
+        #{cardLevel,jdbcType=TINYINT},
       </if>
       <if test="creditLimit != null" >
         #{creditLimit,jdbcType=INTEGER},
@@ -213,7 +213,7 @@
         #{billCycle,jdbcType=TINYINT},
       </if>
       <if test="remindDay != null" >
-        #{remindDay,jdbcType=BIT},
+        #{remindDay,jdbcType=TINYINT},
       </if>
       <if test="expireDay != null" >
         #{expireDay,jdbcType=CHAR},
@@ -225,7 +225,7 @@
         #{utime,jdbcType=CHAR},
       </if>
       <if test="isDelete != null" >
-        #{isDelete,jdbcType=BIT},
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -248,7 +248,7 @@
         card_name = #{record.cardName,jdbcType=VARCHAR},
       </if>
       <if test="record.cardLevel != null" >
-        card_level = #{record.cardLevel,jdbcType=BIT},
+        card_level = #{record.cardLevel,jdbcType=TINYINT},
       </if>
       <if test="record.creditLimit != null" >
         credit_limit = #{record.creditLimit,jdbcType=INTEGER},
@@ -272,7 +272,7 @@
         bill_cycle = #{record.billCycle,jdbcType=TINYINT},
       </if>
       <if test="record.remindDay != null" >
-        remind_day = #{record.remindDay,jdbcType=BIT},
+        remind_day = #{record.remindDay,jdbcType=TINYINT},
       </if>
       <if test="record.expireDay != null" >
         expire_day = #{record.expireDay,jdbcType=CHAR},
@@ -284,7 +284,7 @@
         utime = #{record.utime,jdbcType=CHAR},
       </if>
       <if test="record.isDelete != null" >
-        is_delete = #{record.isDelete,jdbcType=BIT},
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -296,7 +296,7 @@
     set id = #{record.id,jdbcType=BIGINT},
       card_no = #{record.cardNo,jdbcType=CHAR},
       card_name = #{record.cardName,jdbcType=VARCHAR},
-      card_level = #{record.cardLevel,jdbcType=BIT},
+      card_level = #{record.cardLevel,jdbcType=TINYINT},
       credit_limit = #{record.creditLimit,jdbcType=INTEGER},
       credit_temp_limit = #{record.creditTempLimit,jdbcType=INTEGER},
       credit_other_limit = #{record.creditOtherLimit,jdbcType=INTEGER},
@@ -304,11 +304,11 @@
       bill_day = #{record.billDay,jdbcType=CHAR},
       pay_day = #{record.payDay,jdbcType=CHAR},
       bill_cycle = #{record.billCycle,jdbcType=TINYINT},
-      remind_day = #{record.remindDay,jdbcType=BIT},
+      remind_day = #{record.remindDay,jdbcType=TINYINT},
       expire_day = #{record.expireDay,jdbcType=CHAR},
       ctime = #{record.ctime,jdbcType=CHAR},
       utime = #{record.utime,jdbcType=CHAR},
-      is_delete = #{record.isDelete,jdbcType=BIT}
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -323,7 +323,7 @@
         card_name = #{cardName,jdbcType=VARCHAR},
       </if>
       <if test="cardLevel != null" >
-        card_level = #{cardLevel,jdbcType=BIT},
+        card_level = #{cardLevel,jdbcType=TINYINT},
       </if>
       <if test="creditLimit != null" >
         credit_limit = #{creditLimit,jdbcType=INTEGER},
@@ -347,7 +347,7 @@
         bill_cycle = #{billCycle,jdbcType=TINYINT},
       </if>
       <if test="remindDay != null" >
-        remind_day = #{remindDay,jdbcType=BIT},
+        remind_day = #{remindDay,jdbcType=TINYINT},
       </if>
       <if test="expireDay != null" >
         expire_day = #{expireDay,jdbcType=CHAR},
@@ -359,7 +359,7 @@
         utime = #{utime,jdbcType=CHAR},
       </if>
       <if test="isDelete != null" >
-        is_delete = #{isDelete,jdbcType=BIT},
+        is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -368,7 +368,7 @@
     update credit_card
     set card_no = #{cardNo,jdbcType=CHAR},
       card_name = #{cardName,jdbcType=VARCHAR},
-      card_level = #{cardLevel,jdbcType=BIT},
+      card_level = #{cardLevel,jdbcType=TINYINT},
       credit_limit = #{creditLimit,jdbcType=INTEGER},
       credit_temp_limit = #{creditTempLimit,jdbcType=INTEGER},
       credit_other_limit = #{creditOtherLimit,jdbcType=INTEGER},
@@ -376,11 +376,11 @@
       bill_day = #{billDay,jdbcType=CHAR},
       pay_day = #{payDay,jdbcType=CHAR},
       bill_cycle = #{billCycle,jdbcType=TINYINT},
-      remind_day = #{remindDay,jdbcType=BIT},
+      remind_day = #{remindDay,jdbcType=TINYINT},
       expire_day = #{expireDay,jdbcType=CHAR},
       ctime = #{ctime,jdbcType=CHAR},
       utime = #{utime,jdbcType=CHAR},
-      is_delete = #{isDelete,jdbcType=BIT}
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -12,7 +12,7 @@ public class CreditCard {
 
     private String cardName;
 
-    private Boolean cardLevel;
+    private Byte cardLevel;
 
     private Integer creditLimit;
 
@@ -28,7 +28,7 @@ public class CreditCard {
 
     private Byte billCycle;
 
-    private Boolean remindDay;
+    private Byte remindDay;
 
     private String expireDay;
 
@@ -36,6 +36,6 @@ public class CreditCard {
 
     private String utime;
 
-    private Boolean isDelete;
+    private Byte isDelete;
 
 }

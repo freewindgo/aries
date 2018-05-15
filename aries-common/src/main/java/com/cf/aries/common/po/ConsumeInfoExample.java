@@ -564,52 +564,52 @@ public class ConsumeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsPayEqualTo(Boolean value) {
+        public Criteria andIsPayEqualTo(Byte value) {
             addCriterion("is_pay =", value, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayNotEqualTo(Boolean value) {
+        public Criteria andIsPayNotEqualTo(Byte value) {
             addCriterion("is_pay <>", value, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayGreaterThan(Boolean value) {
+        public Criteria andIsPayGreaterThan(Byte value) {
             addCriterion("is_pay >", value, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsPayGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_pay >=", value, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayLessThan(Boolean value) {
+        public Criteria andIsPayLessThan(Byte value) {
             addCriterion("is_pay <", value, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsPayLessThanOrEqualTo(Byte value) {
             addCriterion("is_pay <=", value, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayIn(List<Boolean> values) {
+        public Criteria andIsPayIn(List<Byte> values) {
             addCriterion("is_pay in", values, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayNotIn(List<Boolean> values) {
+        public Criteria andIsPayNotIn(List<Byte> values) {
             addCriterion("is_pay not in", values, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsPayBetween(Byte value1, Byte value2) {
             addCriterion("is_pay between", value1, value2, "isPay");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsPayNotBetween(Byte value1, Byte value2) {
             addCriterion("is_pay not between", value1, value2, "isPay");
             return (Criteria) this;
         }
@@ -694,52 +694,52 @@ public class ConsumeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(Boolean value) {
+        public Criteria andTypeEqualTo(Byte value) {
             addCriterion("type =", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(Boolean value) {
+        public Criteria andTypeNotEqualTo(Byte value) {
             addCriterion("type <>", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(Boolean value) {
+        public Criteria andTypeGreaterThan(Byte value) {
             addCriterion("type >", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andTypeGreaterThanOrEqualTo(Byte value) {
             addCriterion("type >=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(Boolean value) {
+        public Criteria andTypeLessThan(Byte value) {
             addCriterion("type <", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andTypeLessThanOrEqualTo(Byte value) {
             addCriterion("type <=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<Boolean> values) {
+        public Criteria andTypeIn(List<Byte> values) {
             addCriterion("type in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<Boolean> values) {
+        public Criteria andTypeNotIn(List<Byte> values) {
             addCriterion("type not in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andTypeBetween(Byte value1, Byte value2) {
             addCriterion("type between", value1, value2, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
@@ -1014,52 +1014,52 @@ public class ConsumeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteEqualTo(Boolean value) {
+        public Criteria andIsDeleteEqualTo(Byte value) {
             addCriterion("is_delete =", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteNotEqualTo(Boolean value) {
+        public Criteria andIsDeleteNotEqualTo(Byte value) {
             addCriterion("is_delete <>", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteGreaterThan(Boolean value) {
+        public Criteria andIsDeleteGreaterThan(Byte value) {
             addCriterion("is_delete >", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsDeleteGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_delete >=", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteLessThan(Boolean value) {
+        public Criteria andIsDeleteLessThan(Byte value) {
             addCriterion("is_delete <", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsDeleteLessThanOrEqualTo(Byte value) {
             addCriterion("is_delete <=", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteIn(List<Boolean> values) {
+        public Criteria andIsDeleteIn(List<Byte> values) {
             addCriterion("is_delete in", values, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteNotIn(List<Boolean> values) {
+        public Criteria andIsDeleteNotIn(List<Byte> values) {
             addCriterion("is_delete not in", values, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsDeleteBetween(Byte value1, Byte value2) {
             addCriterion("is_delete between", value1, value2, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsDeleteNotBetween(Byte value1, Byte value2) {
             addCriterion("is_delete not between", value1, value2, "isDelete");
             return (Criteria) this;
         }

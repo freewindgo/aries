@@ -314,52 +314,52 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelEqualTo(Boolean value) {
+        public Criteria andCardLevelEqualTo(Byte value) {
             addCriterion("card_level =", value, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelNotEqualTo(Boolean value) {
+        public Criteria andCardLevelNotEqualTo(Byte value) {
             addCriterion("card_level <>", value, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelGreaterThan(Boolean value) {
+        public Criteria andCardLevelGreaterThan(Byte value) {
             addCriterion("card_level >", value, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andCardLevelGreaterThanOrEqualTo(Byte value) {
             addCriterion("card_level >=", value, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelLessThan(Boolean value) {
+        public Criteria andCardLevelLessThan(Byte value) {
             addCriterion("card_level <", value, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelLessThanOrEqualTo(Boolean value) {
+        public Criteria andCardLevelLessThanOrEqualTo(Byte value) {
             addCriterion("card_level <=", value, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelIn(List<Boolean> values) {
+        public Criteria andCardLevelIn(List<Byte> values) {
             addCriterion("card_level in", values, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelNotIn(List<Boolean> values) {
+        public Criteria andCardLevelNotIn(List<Byte> values) {
             addCriterion("card_level not in", values, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelBetween(Boolean value1, Boolean value2) {
+        public Criteria andCardLevelBetween(Byte value1, Byte value2) {
             addCriterion("card_level between", value1, value2, "cardLevel");
             return (Criteria) this;
         }
 
-        public Criteria andCardLevelNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andCardLevelNotBetween(Byte value1, Byte value2) {
             addCriterion("card_level not between", value1, value2, "cardLevel");
             return (Criteria) this;
         }
@@ -814,52 +814,52 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayEqualTo(Boolean value) {
+        public Criteria andRemindDayEqualTo(Byte value) {
             addCriterion("remind_day =", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayNotEqualTo(Boolean value) {
+        public Criteria andRemindDayNotEqualTo(Byte value) {
             addCriterion("remind_day <>", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayGreaterThan(Boolean value) {
+        public Criteria andRemindDayGreaterThan(Byte value) {
             addCriterion("remind_day >", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andRemindDayGreaterThanOrEqualTo(Byte value) {
             addCriterion("remind_day >=", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayLessThan(Boolean value) {
+        public Criteria andRemindDayLessThan(Byte value) {
             addCriterion("remind_day <", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayLessThanOrEqualTo(Boolean value) {
+        public Criteria andRemindDayLessThanOrEqualTo(Byte value) {
             addCriterion("remind_day <=", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayIn(List<Boolean> values) {
+        public Criteria andRemindDayIn(List<Byte> values) {
             addCriterion("remind_day in", values, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayNotIn(List<Boolean> values) {
+        public Criteria andRemindDayNotIn(List<Byte> values) {
             addCriterion("remind_day not in", values, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayBetween(Boolean value1, Boolean value2) {
+        public Criteria andRemindDayBetween(Byte value1, Byte value2) {
             addCriterion("remind_day between", value1, value2, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andRemindDayNotBetween(Byte value1, Byte value2) {
             addCriterion("remind_day not between", value1, value2, "remindDay");
             return (Criteria) this;
         }
@@ -1084,52 +1084,52 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteEqualTo(Boolean value) {
+        public Criteria andIsDeleteEqualTo(Byte value) {
             addCriterion("is_delete =", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteNotEqualTo(Boolean value) {
+        public Criteria andIsDeleteNotEqualTo(Byte value) {
             addCriterion("is_delete <>", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteGreaterThan(Boolean value) {
+        public Criteria andIsDeleteGreaterThan(Byte value) {
             addCriterion("is_delete >", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsDeleteGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_delete >=", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteLessThan(Boolean value) {
+        public Criteria andIsDeleteLessThan(Byte value) {
             addCriterion("is_delete <", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsDeleteLessThanOrEqualTo(Byte value) {
             addCriterion("is_delete <=", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteIn(List<Boolean> values) {
+        public Criteria andIsDeleteIn(List<Byte> values) {
             addCriterion("is_delete in", values, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteNotIn(List<Boolean> values) {
+        public Criteria andIsDeleteNotIn(List<Byte> values) {
             addCriterion("is_delete not in", values, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsDeleteBetween(Byte value1, Byte value2) {
             addCriterion("is_delete between", value1, value2, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIsDeleteNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsDeleteNotBetween(Byte value1, Byte value2) {
             addCriterion("is_delete not between", value1, value2, "isDelete");
             return (Criteria) this;
         }

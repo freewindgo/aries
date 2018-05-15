@@ -20,6 +20,6 @@ public class ConsumeStat {
 
     private String utime;
 
-    private Boolean isDelete;
+    private Byte isDelete;
 
 }

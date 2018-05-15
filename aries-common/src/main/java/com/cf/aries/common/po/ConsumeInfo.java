@@ -20,11 +20,11 @@ public class ConsumeInfo {
 
     private Integer bill;
 
-    private Boolean isPay;
+    private Byte isPay;
 
     private String month;
 
-    private Boolean type;
+    private Byte type;
 
     private Integer woolCycle;
 
@@ -34,6 +34,6 @@ public class ConsumeInfo {
 
     private String utime;
 
-    private Boolean isDelete;
+    private Byte isDelete;
 
 }

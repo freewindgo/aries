@@ -26,6 +26,6 @@ public class WoolInfo {
 
     private String utime;
 
-    private Boolean isDelete;
+    private Byte isDelete;
 
 }

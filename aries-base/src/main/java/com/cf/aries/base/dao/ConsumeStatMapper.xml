@@ -9,7 +9,7 @@
     <result column="month" property="month" jdbcType="CHAR" />
     <result column="ctime" property="ctime" jdbcType="CHAR" />
     <result column="utime" property="utime" jdbcType="CHAR" />
-    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -108,7 +108,7 @@
       is_delete)
     values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{bill,jdbcType=INTEGER}, 
       #{wool,jdbcType=INTEGER}, #{month,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, 
-      #{isDelete,jdbcType=BIT})
+      #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.ConsumeStat" >
     insert into consume_stat
@@ -161,7 +161,7 @@
         #{utime,jdbcType=CHAR},
       </if>
       <if test="isDelete != null" >
-        #{isDelete,jdbcType=BIT},
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -196,7 +196,7 @@
         utime = #{record.utime,jdbcType=CHAR},
       </if>
       <if test="record.isDelete != null" >
-        is_delete = #{record.isDelete,jdbcType=BIT},
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -212,7 +212,7 @@
       month = #{record.month,jdbcType=CHAR},
       ctime = #{record.ctime,jdbcType=CHAR},
       utime = #{record.utime,jdbcType=CHAR},
-      is_delete = #{record.isDelete,jdbcType=BIT}
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -239,7 +239,7 @@
         utime = #{utime,jdbcType=CHAR},
       </if>
       <if test="isDelete != null" >
-        is_delete = #{isDelete,jdbcType=BIT},
+        is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -252,7 +252,7 @@
       month = #{month,jdbcType=CHAR},
       ctime = #{ctime,jdbcType=CHAR},
       utime = #{utime,jdbcType=CHAR},
-      is_delete = #{isDelete,jdbcType=BIT}
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

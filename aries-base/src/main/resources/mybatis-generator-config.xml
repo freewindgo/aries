@@ -14,7 +14,7 @@
         </commentGenerator>
 
         <!-- 数据库的相关配置 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://47.97.163.100:3306/aries" userId="root" password="password"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://47.97.163.100:3306/aries?tinyInt1isBit=false" userId="root" password="password"/>
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>

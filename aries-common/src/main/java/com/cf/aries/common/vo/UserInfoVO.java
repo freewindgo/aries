@@ -1,11 +1,11 @@
-package com.cf.aries.common.po;
+package com.cf.aries.common.vo;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserInfo {
+public class UserInfoVO {
     private Long id;
 
     private String openId;
@@ -27,11 +27,5 @@ public class UserInfo {
     private String image;
 
     private Byte isPrivate;
-
-    private Byte isDelete;
-
-    private String ctime;
-
-    private String utime;
 
 }

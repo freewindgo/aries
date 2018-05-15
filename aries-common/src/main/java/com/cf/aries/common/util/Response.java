@@ -2,6 +2,7 @@ package com.cf.aries.common.util;
 
 import com.cf.aries.common.message.ResponseMessage;
 import com.cf.aries.common.message.ResponseMessageInterface;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,12 +11,15 @@ import java.io.Serializable;
 /**
  * Response
  *
+ * 交互工具类
+ *
  * @author 于文硕 yuwenshuo@passiontec.cn
  * @since 2018/5/11 13:50
  */
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response<T> implements Serializable {
     private int code;
     private String message;

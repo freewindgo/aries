@@ -18,12 +18,6 @@
             <artifactId>aries-common</artifactId>
             <version>${project.version}</version>
         </dependency>
-<!--
-        <dependency>
-            <groupId>cn.px.irs.commons</groupId>
-            <artifactId>commons-dbrouter</artifactId>
-            <version>1.5.9</version>
-        </dependency>-->
 
         <!-- Spring Cloud 依赖 -->
         <dependency>

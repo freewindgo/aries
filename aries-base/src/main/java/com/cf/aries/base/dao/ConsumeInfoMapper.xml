@@ -9,14 +9,14 @@
     <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
     <result column="pay_time" property="payTime" jdbcType="CHAR" />
     <result column="bill" property="bill" jdbcType="INTEGER" />
-    <result column="is_pay" property="isPay" jdbcType="BIT" />
+    <result column="is_pay" property="isPay" jdbcType="TINYINT" />
     <result column="month" property="month" jdbcType="CHAR" />
-    <result column="type" property="type" jdbcType="BIT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
     <result column="wool_cycle" property="woolCycle" jdbcType="INTEGER" />
     <result column="wool_rate" property="woolRate" jdbcType="INTEGER" />
     <result column="ctime" property="ctime" jdbcType="CHAR" />
     <result column="utime" property="utime" jdbcType="CHAR" />
-    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -118,9 +118,9 @@
       utime, is_delete)
     values (#{id,jdbcType=BIGINT}, #{cardId,jdbcType=BIGINT}, #{cardName,jdbcType=VARCHAR}, 
       #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, #{payTime,jdbcType=CHAR}, 
-      #{bill,jdbcType=INTEGER}, #{isPay,jdbcType=BIT}, #{month,jdbcType=CHAR}, #{type,jdbcType=BIT}, 
+      #{bill,jdbcType=INTEGER}, #{isPay,jdbcType=TINYINT}, #{month,jdbcType=CHAR}, #{type,jdbcType=TINYINT}, 
       #{woolCycle,jdbcType=INTEGER}, #{woolRate,jdbcType=INTEGER}, #{ctime,jdbcType=CHAR}, 
-      #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=BIT})
+      #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.ConsumeInfo" >
     insert into consume_info
@@ -194,13 +194,13 @@
         #{bill,jdbcType=INTEGER},
       </if>
       <if test="isPay != null" >
-        #{isPay,jdbcType=BIT},
+        #{isPay,jdbcType=TINYINT},
       </if>
       <if test="month != null" >
         #{month,jdbcType=CHAR},
       </if>
       <if test="type != null" >
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="woolCycle != null" >
         #{woolCycle,jdbcType=INTEGER},
@@ -215,7 +215,7 @@
         #{utime,jdbcType=CHAR},
       </if>
       <if test="isDelete != null" >
-        #{isDelete,jdbcType=BIT},
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -250,13 +250,13 @@
         bill = #{record.bill,jdbcType=INTEGER},
       </if>
       <if test="record.isPay != null" >
-        is_pay = #{record.isPay,jdbcType=BIT},
+        is_pay = #{record.isPay,jdbcType=TINYINT},
       </if>
       <if test="record.month != null" >
         month = #{record.month,jdbcType=CHAR},
       </if>
       <if test="record.type != null" >
-        type = #{record.type,jdbcType=BIT},
+        type = #{record.type,jdbcType=TINYINT},
       </if>
       <if test="record.woolCycle != null" >
         wool_cycle = #{record.woolCycle,jdbcType=INTEGER},
@@ -271,7 +271,7 @@
         utime = #{record.utime,jdbcType=CHAR},
       </if>
       <if test="record.isDelete != null" >
-        is_delete = #{record.isDelete,jdbcType=BIT},
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -287,14 +287,14 @@
       bank_name = #{record.bankName,jdbcType=VARCHAR},
       pay_time = #{record.payTime,jdbcType=CHAR},
       bill = #{record.bill,jdbcType=INTEGER},
-      is_pay = #{record.isPay,jdbcType=BIT},
+      is_pay = #{record.isPay,jdbcType=TINYINT},
       month = #{record.month,jdbcType=CHAR},
-      type = #{record.type,jdbcType=BIT},
+      type = #{record.type,jdbcType=TINYINT},
       wool_cycle = #{record.woolCycle,jdbcType=INTEGER},
       wool_rate = #{record.woolRate,jdbcType=INTEGER},
       ctime = #{record.ctime,jdbcType=CHAR},
       utime = #{record.utime,jdbcType=CHAR},
-      is_delete = #{record.isDelete,jdbcType=BIT}
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -321,13 +321,13 @@
         bill = #{bill,jdbcType=INTEGER},
       </if>
       <if test="isPay != null" >
-        is_pay = #{isPay,jdbcType=BIT},
+        is_pay = #{isPay,jdbcType=TINYINT},
       </if>
       <if test="month != null" >
         month = #{month,jdbcType=CHAR},
       </if>
       <if test="type != null" >
-        type = #{type,jdbcType=BIT},
+        type = #{type,jdbcType=TINYINT},
       </if>
       <if test="woolCycle != null" >
         wool_cycle = #{woolCycle,jdbcType=INTEGER},
@@ -342,7 +342,7 @@
         utime = #{utime,jdbcType=CHAR},
       </if>
       <if test="isDelete != null" >
-        is_delete = #{isDelete,jdbcType=BIT},
+        is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -355,14 +355,14 @@
       bank_name = #{bankName,jdbcType=VARCHAR},
       pay_time = #{payTime,jdbcType=CHAR},
       bill = #{bill,jdbcType=INTEGER},
-      is_pay = #{isPay,jdbcType=BIT},
+      is_pay = #{isPay,jdbcType=TINYINT},
       month = #{month,jdbcType=CHAR},
-      type = #{type,jdbcType=BIT},
+      type = #{type,jdbcType=TINYINT},
       wool_cycle = #{woolCycle,jdbcType=INTEGER},
       wool_rate = #{woolRate,jdbcType=INTEGER},
       ctime = #{ctime,jdbcType=CHAR},
       utime = #{utime,jdbcType=CHAR},
-      is_delete = #{isDelete,jdbcType=BIT}
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

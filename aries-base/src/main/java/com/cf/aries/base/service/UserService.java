@@ -1,5 +1,9 @@
 package com.cf.aries.base.service;
 
+import com.cf.aries.common.po.UserInfo;
+
+import java.util.List;
+
 /**
  * UserService
  *
@@ -8,5 +12,10 @@ package com.cf.aries.base.service;
  */
 public interface UserService {
 
+    UserInfo getUserInfoById(Long userId);
+
+    int insertUserInfo(UserInfo userInfo);
+
+    int updateUserInfo(UserInfo userInfo);
 
 }
