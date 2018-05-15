@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Response
@@ -52,12 +53,23 @@ public class Response<T> implements Serializable {
         this.data = data;
     }
 
+    private Response(ResponseMessageInterface msg, Integer totalRecords, T data) {
+        this.code = msg.getCode();
+        this.message = msg.getMessage();
+        this.totalRecords = totalRecords.intValue();
+        this.data = data;
+    }
+
     public static <T> Response<T> success() {
         return new Response(ResponseMessage.SUCCESS);
     }
 
     public static <T> Response<T> success(T data) {
         return new Response(ResponseMessage.SUCCESS, data);
+    }
+
+    public static <T> Response<T> success(Integer totalRecords, List<T> data) {
+        return new Response(ResponseMessage.SUCCESS, totalRecords, data);
     }
 
     public static <T> Response<T> error() {

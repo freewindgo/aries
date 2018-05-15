@@ -1,11 +1,15 @@
 package com.cf.aries.common.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class ConsumeInfo {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(value={"isDelete"})
+public class ConsumeInfo extends PageInfo {
     private Long id;
 
     private Long cardId;
@@ -15,8 +19,6 @@ public class ConsumeInfo {
     private Long userId;
 
     private Integer bankId;
-
-    private String bankName;
 
     private String payTime;
 
@@ -37,5 +39,6 @@ public class ConsumeInfo {
     private String utime;
 
     private Byte isDelete;
+
 
 }

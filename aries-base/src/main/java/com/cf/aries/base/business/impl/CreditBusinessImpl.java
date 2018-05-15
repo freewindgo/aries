@@ -9,14 +9,11 @@ import com.cf.aries.common.po.CreditCard;
 import com.cf.aries.common.util.DateUtils;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
-import com.cf.aries.common.dto.CreditCardDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,9 +34,7 @@ public class CreditBusinessImpl implements CreditBusiness {
     @Split("main")
     @Transactional
     @Override
-    public Response saveCreditCard(CreditCardDTO creditCardDTO) {
-        CreditCard creditCard = new CreditCard();
-        BeanUtils.copyProperties(creditCardDTO, creditCard);
+    public Response saveCreditCard(CreditCard creditCard) {
         if (EmptyUtils.isEmpty(creditCard.getId())) {
             creditCard.setCtime(DateUtils.formatDate(DateUtils.FORMAT_DEFAULT, new Date()));
             creditCard.setUtime(creditCard.getCtime());
@@ -61,27 +56,17 @@ public class CreditBusinessImpl implements CreditBusiness {
         if (creditCard == null) {
             return Response.error(CreditMessage.NO_CARD);
         }
-        CreditCardDTO creditCardDTO = new CreditCardDTO();
-        BeanUtils.copyProperties(creditCard, creditCardDTO);
-        return Response.success(creditCardDTO);
+        return Response.success(creditCard);
     }
 
     @Split("main")
     @Override
-    public Response getCreditCards(CreditCardDTO creditCardDTO) {
-        CreditCard creditCard = new CreditCard();
-        BeanUtils.copyProperties(creditCardDTO, creditCard);
+    public Response getCreditCards(CreditCard creditCard) {
         List<CreditCard> creditCardList = creditService.getCreditCards(creditCard);
         if (EmptyUtils.isEmpty(creditCardList)) {
             return Response.error(CreditMessage.NO_CARD);
         }
-        List<CreditCardDTO> creditCardDTOList = new ArrayList<>();
-        for(CreditCard temp : creditCardList){
-            CreditCardDTO tempDTO = new CreditCardDTO();
-            BeanUtils.copyProperties(temp,tempDTO);
-            creditCardDTOList.add(tempDTO);
-        }
-        return Response.success(creditCardDTOList);
+        return Response.success(creditCardList);
     }
 
     @Split("main")

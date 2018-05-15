@@ -1,7 +1,7 @@
 package com.cf.aries.base.business;
 
+import com.cf.aries.common.po.CreditCard;
 import com.cf.aries.common.util.Response;
-import com.cf.aries.common.dto.CreditCardDTO;
 
 /**
  * CreditBusiness
@@ -11,11 +11,11 @@ import com.cf.aries.common.dto.CreditCardDTO;
  */
 public interface CreditBusiness {
 
-    Response saveCreditCard(CreditCardDTO creditCardDTO);
+    Response saveCreditCard(CreditCard creditCard);
 
     Response getCreditCardById(Long cardId);
 
-    Response getCreditCards(CreditCardDTO creditCardDTO);
+    Response getCreditCards(CreditCard creditCard);
 
     Response deleteCreditCard(Long cardId);
 

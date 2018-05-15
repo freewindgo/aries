@@ -9,7 +9,6 @@ import com.cf.aries.common.po.UserInfo;
 import com.cf.aries.common.util.DateUtils;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
-import com.cf.aries.common.dto.UserInfoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +34,7 @@ public class UserBusinessImpl implements UserBusiness {
     @Split("main")
     @Transactional
     @Override
-    public Response saveUserInfo(UserInfoDTO userInfoDTO) {
-        UserInfo userInfo = new UserInfo();
-        BeanUtils.copyProperties(userInfoDTO, userInfo);
+    public Response saveUserInfo(UserInfo userInfo) {
         if (EmptyUtils.isEmpty(userInfo.getId())) {
             userInfo.setCtime(DateUtils.formatDate(DateUtils.FORMAT_DEFAULT, new Date()));
             userInfo.setUtime(userInfo.getCtime());
@@ -59,9 +56,7 @@ public class UserBusinessImpl implements UserBusiness {
         if (userInfo == null) {
             return Response.error(UserMessage.NO_USER);
         }
-        UserInfoDTO userInfoDTO = new UserInfoDTO();
-        BeanUtils.copyProperties(userInfo, userInfoDTO);
-        return Response.success(userInfoDTO);
+        return Response.success(userInfo);
     }
 
     @Split("main")

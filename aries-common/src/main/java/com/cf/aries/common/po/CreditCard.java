@@ -1,10 +1,12 @@
 package com.cf.aries.common.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(value={"isDelete"})
 public class CreditCard {
     private Long id;
 

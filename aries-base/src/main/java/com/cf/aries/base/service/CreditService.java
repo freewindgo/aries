@@ -20,5 +20,4 @@ public interface CreditService {
 
     int updateCreditCard(CreditCard creditCard);
 
-    int deleteCreditCardById(CreditCard creditCard);
 }

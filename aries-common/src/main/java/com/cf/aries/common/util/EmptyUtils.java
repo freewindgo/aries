@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * EmptyUtils
- *
+ * <p>
  * 校验Obj和Collection是否为空
  *
  * @author 于文硕 yuwenshuo@passiontec.cn
@@ -13,8 +13,12 @@ import java.util.Map;
  */
 public class EmptyUtils {
 
+    public static boolean isEmpty(String str) {
+        return str == null || "".equals(str);
+    }
+
     public static boolean isEmpty(Object obj) {
-        return obj == null || "".equals(obj);
+        return obj == null || "0".equals(obj);
     }
 
     public static boolean isEmpty(Collection<?> collection) {
@@ -25,8 +29,12 @@ public class EmptyUtils {
         return map == null || map.isEmpty();
     }
 
+    public static boolean isNotEmpty(String str) {
+        return str != null && !"".equals(str);
+    }
+
     public static boolean isNotEmpty(Object obj) {
-        return obj != null && !"".equals(obj);
+        return obj != null && !"0".equals(obj);
     }
 
     public static boolean isNotEmpty(Collection<?> collection) {

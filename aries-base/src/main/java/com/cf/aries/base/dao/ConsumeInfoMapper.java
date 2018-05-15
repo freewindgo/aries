@@ -21,6 +21,8 @@ public interface ConsumeInfoMapper {
 
     List<ConsumeInfo> selectByExample(ConsumeInfoExample example);
 
+    List<ConsumeInfo> selectByCondition(ConsumeInfo consumeInfo);
+
     ConsumeInfo selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") ConsumeInfo record, @Param("example") ConsumeInfoExample example);
@@ -30,4 +32,6 @@ public interface ConsumeInfoMapper {
     int updateByPrimaryKeySelective(ConsumeInfo record);
 
     int updateByPrimaryKey(ConsumeInfo record);
+
+    int countByCondition(ConsumeInfo consumeInfo);
 }

@@ -40,8 +40,4 @@ public class CreditServiceImpl implements CreditService{
         return creditCardMapper.updateByPrimaryKeySelective(creditCard);
     }
 
-    @Override
-    public int deleteCreditCardById(CreditCard creditCard) {
-        return creditCardMapper.updateByPrimaryKeySelective(creditCard);
-    }
 }

@@ -1,8 +1,8 @@
 package com.cf.aries.base.provider;
 
 import com.cf.aries.base.business.CreditBusiness;
-import com.cf.aries.common.dto.CreditCardDTO;
 import com.cf.aries.common.message.ResponseMessage;
+import com.cf.aries.common.po.CreditCard;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
 import lombok.extern.slf4j.Slf4j;
@@ -24,12 +24,12 @@ public class CreditProvider {
     private CreditBusiness creditBusiness;
 
     @GetMapping("/getCreditCardById")
-    public Response getCreditCardById(@RequestParam Long cardId){
-        if(EmptyUtils.isEmpty(cardId)){
+    public Response getCreditCardById(@RequestParam Long id){
+        if(EmptyUtils.isEmpty(id)){
             return Response.error(ResponseMessage.PARAM_ERROR);
         }
         try {
-            return creditBusiness.getCreditCardById(cardId);
+            return creditBusiness.getCreditCardById(id);
         } catch (Exception e) {
             log.error("getCreditCardById error, error:{}",e);
             return Response.error();
@@ -37,9 +37,9 @@ public class CreditProvider {
     }
 
     @PostMapping("/getCreditCards")
-    public Response getCreditCards(@RequestBody CreditCardDTO creditCardDTO){
+    public Response getCreditCards(@RequestBody CreditCard creditCard){
         try {
-            return creditBusiness.getCreditCards(creditCardDTO);
+            return creditBusiness.getCreditCards(creditCard);
         } catch (Exception e) {
             log.error("getCreditCards error, error:{}",e);
             return Response.error();
@@ -47,9 +47,9 @@ public class CreditProvider {
     }
 
     @PostMapping("/saveCreditCard")
-    public Response saveCreditCard(@RequestBody CreditCardDTO creditCardDTO){
+    public Response saveCreditCard(@RequestBody CreditCard creditCard){
         try {
-            return creditBusiness.saveCreditCard(creditCardDTO);
+            return creditBusiness.saveCreditCard(creditCard);
         } catch (Exception e) {
             log.error("saveCreditCard error, error:{}",e);
             return Response.error();
@@ -57,12 +57,12 @@ public class CreditProvider {
     }
 
     @GetMapping("/deleteCreditCard")
-    public Response deleteCreditCard(@RequestParam Long cardId){
-        if(EmptyUtils.isEmpty(cardId)){
+    public Response deleteCreditCard(@RequestParam Long id){
+        if(EmptyUtils.isEmpty(id)){
             return Response.error(ResponseMessage.PARAM_ERROR);
         }
         try {
-            return creditBusiness.deleteCreditCard(cardId);
+            return creditBusiness.deleteCreditCard(id);
         } catch (Exception e) {
             log.error("deleteCreditCard error, error:{}",e);
             return Response.error();
