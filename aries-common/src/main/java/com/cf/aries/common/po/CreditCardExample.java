@@ -164,6 +164,126 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdEqualTo(Long value) {
+            addCriterion("user_id =", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotEqualTo(Long value) {
+            addCriterion("user_id <>", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThan(Long value) {
+            addCriterion("user_id >", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_id >=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThan(Long value) {
+            addCriterion("user_id <", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_id <=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIn(List<Long> values) {
+            addCriterion("user_id in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotIn(List<Long> values) {
+            addCriterion("user_id not in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdBetween(Long value1, Long value2) {
+            addCriterion("user_id between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdIsNull() {
+            addCriterion("bank_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdIsNotNull() {
+            addCriterion("bank_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdEqualTo(Integer value) {
+            addCriterion("bank_id =", value, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdNotEqualTo(Integer value) {
+            addCriterion("bank_id <>", value, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdGreaterThan(Integer value) {
+            addCriterion("bank_id >", value, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("bank_id >=", value, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdLessThan(Integer value) {
+            addCriterion("bank_id <", value, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdLessThanOrEqualTo(Integer value) {
+            addCriterion("bank_id <=", value, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdIn(List<Integer> values) {
+            addCriterion("bank_id in", values, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdNotIn(List<Integer> values) {
+            addCriterion("bank_id not in", values, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdBetween(Integer value1, Integer value2) {
+            addCriterion("bank_id between", value1, value2, "bankId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("bank_id not between", value1, value2, "bankId");
+            return (Criteria) this;
+        }
+
         public Criteria andCardNoIsNull() {
             addCriterion("card_no is null");
             return (Criteria) this;

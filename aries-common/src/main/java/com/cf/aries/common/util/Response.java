@@ -24,6 +24,7 @@ public class Response<T> implements Serializable {
     private int code;
     private String message;
     private T data;
+    private Integer totalRecords;
 
     public boolean succeed() {
         return this.getCode() == ResponseMessage.SUCCESS.getCode();

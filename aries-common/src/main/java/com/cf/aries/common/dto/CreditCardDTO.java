@@ -1,11 +1,11 @@
-package com.cf.aries.common.po;
+package com.cf.aries.common.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CreditCard {
+public class CreditCardDTO {
     private Long id;
 
     private Long userId;
@@ -35,11 +35,5 @@ public class CreditCard {
     private Byte remindDay;
 
     private String expireDay;
-
-    private String ctime;
-
-    private String utime;
-
-    private Byte isDelete;
 
 }

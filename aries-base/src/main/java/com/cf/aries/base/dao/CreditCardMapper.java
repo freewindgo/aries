@@ -21,6 +21,8 @@ public interface CreditCardMapper {
 
     List<CreditCard> selectByExample(CreditCardExample example);
 
+    List<CreditCard> selectByCondition(CreditCard creditCard);
+
     CreditCard selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") CreditCard record, @Param("example") CreditCardExample example);

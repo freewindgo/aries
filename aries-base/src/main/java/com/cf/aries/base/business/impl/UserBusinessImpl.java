@@ -8,9 +8,8 @@ import com.cf.aries.common.message.UserMessage;
 import com.cf.aries.common.po.UserInfo;
 import com.cf.aries.common.util.DateUtils;
 import com.cf.aries.common.util.EmptyUtils;
-import com.cf.aries.common.util.MD5Utils;
 import com.cf.aries.common.util.Response;
-import com.cf.aries.common.vo.UserInfoVO;
+import com.cf.aries.common.dto.UserInfoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ import java.util.Date;
 
 @Slf4j
 @Service
-public class UserBusinessImpl implements UserBusiness{
+public class UserBusinessImpl implements UserBusiness {
 
     @Autowired
     private UserService userService;
@@ -36,16 +35,16 @@ public class UserBusinessImpl implements UserBusiness{
     @Split("main")
     @Transactional
     @Override
-    public Response saveUserInfo(UserInfoVO userInfoVO) {
+    public Response saveUserInfo(UserInfoDTO userInfoDTO) {
         UserInfo userInfo = new UserInfo();
-        BeanUtils.copyProperties(userInfoVO,userInfo);
-        if(EmptyUtils.isEmpty(userInfo.getId())){
+        BeanUtils.copyProperties(userInfoDTO, userInfo);
+        if (EmptyUtils.isEmpty(userInfo.getId())) {
             userInfo.setCtime(DateUtils.formatDate(DateUtils.FORMAT_DEFAULT, new Date()));
             userInfo.setUtime(userInfo.getCtime());
             userInfo.setIsDelete(CommonEnum.NORMAL.getCode());
             userService.insertUserInfo(userInfo);
 
-        }else{
+        } else {
             userInfo.setUtime(DateUtils.formatDate(DateUtils.FORMAT_DEFAULT, new Date()));
             userService.updateUserInfo(userInfo);
         }
@@ -57,17 +56,22 @@ public class UserBusinessImpl implements UserBusiness{
     @Override
     public Response getUserInfoById(Long userId) {
         UserInfo userInfo = userService.getUserInfoById(userId);
-        return Response.success(userInfo);
+        if (userInfo == null) {
+            return Response.error(UserMessage.NO_USER);
+        }
+        UserInfoDTO userInfoDTO = new UserInfoDTO();
+        BeanUtils.copyProperties(userInfo, userInfoDTO);
+        return Response.success(userInfoDTO);
     }
 
     @Split("main")
     @Override
     public Response checkPassword(Long userId, String password) {
         UserInfo userInfo = userService.getUserInfoById(userId);
-        if(userInfo == null){
+        if (userInfo == null) {
             return Response.error(UserMessage.NO_USER);
         }
-        if(!password.equals(userInfo.getPassword())){
+        if (!password.equals(userInfo.getPassword())) {
             return Response.error(UserMessage.PASSWORD_INVALID);
         }
         return Response.success();

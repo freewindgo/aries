@@ -1,11 +1,11 @@
-package com.cf.aries.common.vo;
+package com.cf.aries.common.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserInfoVO {
+public class UserInfoDTO {
     private Long id;
 
     private String openId;

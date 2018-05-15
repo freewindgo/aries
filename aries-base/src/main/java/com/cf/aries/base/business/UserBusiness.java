@@ -1,8 +1,7 @@
 package com.cf.aries.base.business;
 
-import com.cf.aries.common.po.UserInfo;
 import com.cf.aries.common.util.Response;
-import com.cf.aries.common.vo.UserInfoVO;
+import com.cf.aries.common.dto.UserInfoDTO;
 
 /**
  * UserBusiness
@@ -13,7 +12,7 @@ import com.cf.aries.common.vo.UserInfoVO;
 
 public interface UserBusiness {
 
-    Response saveUserInfo(UserInfoVO userInfoVO);
+    Response saveUserInfo(UserInfoDTO userInfoDTO);
 
     Response getUserInfoById(Long userId);
 

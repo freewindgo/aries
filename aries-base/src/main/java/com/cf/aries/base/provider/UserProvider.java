@@ -4,7 +4,7 @@ import com.cf.aries.base.business.UserBusiness;
 import com.cf.aries.common.message.ResponseMessage;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
-import com.cf.aries.common.vo.UserInfoVO;
+import com.cf.aries.common.dto.UserInfoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -39,9 +39,9 @@ public class UserProvider {
     }
 
     @PostMapping("/saveUserInfo")
-    public Response saveUserInfo(@RequestBody UserInfoVO userInfoVO){
+    public Response saveUserInfo(@RequestBody UserInfoDTO userInfoDTO){
         try {
-            return userBusiness.saveUserInfo(userInfoVO);
+            return userBusiness.saveUserInfo(userInfoDTO);
         } catch (Exception e) {
             log.error("saveUserInfo error, error:{}",e);
             return Response.error();

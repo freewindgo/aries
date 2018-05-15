@@ -3,6 +3,8 @@
 <mapper namespace="com.cf.aries.base.dao.CreditCardMapper" >
   <resultMap id="BaseResultMap" type="com.cf.aries.common.po.CreditCard" >
     <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="bank_id" property="bankId" jdbcType="INTEGER" />
     <result column="card_no" property="cardNo" jdbcType="CHAR" />
     <result column="card_name" property="cardName" jdbcType="VARCHAR" />
     <result column="card_level" property="cardLevel" jdbcType="TINYINT" />
@@ -78,9 +80,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, card_no, card_name, card_level, credit_limit, credit_temp_limit, credit_other_limit, 
-    credit_total_limit, bill_day, pay_day, bill_cycle, remind_day, expire_day, ctime, 
-    utime, is_delete
+    id, user_id, bank_id, card_no, card_name, card_level, credit_limit, credit_temp_limit, 
+    credit_other_limit, credit_total_limit, bill_day, pay_day, bill_cycle, remind_day, 
+    expire_day, ctime, utime, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.CreditCardExample" >
     select
@@ -113,24 +115,30 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cf.aries.common.po.CreditCard" >
-    insert into credit_card (id, card_no, card_name, 
-      card_level, credit_limit, credit_temp_limit, 
-      credit_other_limit, credit_total_limit, bill_day, 
-      pay_day, bill_cycle, remind_day, 
-      expire_day, ctime, utime, is_delete
-      )
-    values (#{id,jdbcType=BIGINT}, #{cardNo,jdbcType=CHAR}, #{cardName,jdbcType=VARCHAR}, 
-      #{cardLevel,jdbcType=TINYINT}, #{creditLimit,jdbcType=INTEGER}, #{creditTempLimit,jdbcType=INTEGER}, 
-      #{creditOtherLimit,jdbcType=INTEGER}, #{creditTotalLimit,jdbcType=INTEGER}, #{billDay,jdbcType=CHAR}, 
-      #{payDay,jdbcType=CHAR}, #{billCycle,jdbcType=TINYINT}, #{remindDay,jdbcType=TINYINT}, 
-      #{expireDay,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}
-      )
+    insert into credit_card (id, user_id, bank_id, 
+      card_no, card_name, card_level, 
+      credit_limit, credit_temp_limit, credit_other_limit, 
+      credit_total_limit, bill_day, pay_day, 
+      bill_cycle, remind_day, expire_day, 
+      ctime, utime, is_delete)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{bankId,jdbcType=INTEGER}, 
+      #{cardNo,jdbcType=CHAR}, #{cardName,jdbcType=VARCHAR}, #{cardLevel,jdbcType=TINYINT}, 
+      #{creditLimit,jdbcType=INTEGER}, #{creditTempLimit,jdbcType=INTEGER}, #{creditOtherLimit,jdbcType=INTEGER}, 
+      #{creditTotalLimit,jdbcType=INTEGER}, #{billDay,jdbcType=CHAR}, #{payDay,jdbcType=CHAR}, 
+      #{billCycle,jdbcType=TINYINT}, #{remindDay,jdbcType=TINYINT}, #{expireDay,jdbcType=CHAR}, 
+      #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.CreditCard" >
     insert into credit_card
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="bankId != null" >
+        bank_id,
       </if>
       <if test="cardNo != null" >
         card_no,
@@ -181,6 +189,12 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="bankId != null" >
+        #{bankId,jdbcType=INTEGER},
       </if>
       <if test="cardNo != null" >
         #{cardNo,jdbcType=CHAR},
@@ -241,6 +255,12 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.bankId != null" >
+        bank_id = #{record.bankId,jdbcType=INTEGER},
+      </if>
       <if test="record.cardNo != null" >
         card_no = #{record.cardNo,jdbcType=CHAR},
       </if>
@@ -294,6 +314,8 @@
   <update id="updateByExample" parameterType="map" >
     update credit_card
     set id = #{record.id,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      bank_id = #{record.bankId,jdbcType=INTEGER},
       card_no = #{record.cardNo,jdbcType=CHAR},
       card_name = #{record.cardName,jdbcType=VARCHAR},
       card_level = #{record.cardLevel,jdbcType=TINYINT},
@@ -316,6 +338,12 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.cf.aries.common.po.CreditCard" >
     update credit_card
     <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="bankId != null" >
+        bank_id = #{bankId,jdbcType=INTEGER},
+      </if>
       <if test="cardNo != null" >
         card_no = #{cardNo,jdbcType=CHAR},
       </if>
@@ -366,7 +394,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cf.aries.common.po.CreditCard" >
     update credit_card
-    set card_no = #{cardNo,jdbcType=CHAR},
+    set user_id = #{userId,jdbcType=BIGINT},
+      bank_id = #{bankId,jdbcType=INTEGER},
+      card_no = #{cardNo,jdbcType=CHAR},
       card_name = #{cardName,jdbcType=VARCHAR},
       card_level = #{cardLevel,jdbcType=TINYINT},
       credit_limit = #{creditLimit,jdbcType=INTEGER},
@@ -383,4 +413,28 @@
       is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.CreditCard" >
+    select
+    <include refid="Base_Column_List" />
+    from credit_card
+    where is_delete = 1
+    <if test="userId != null" >
+      AND user_id = #{userId}
+    </if>
+    <if test="cardName != null" >
+      AND card_name like concat('%', #{cardName} ,'%')
+    </if>
+    <if test="cardLevel != null" >
+      AND  card_level = #{cardLevel}
+    </if>
+    <if test="creditLimit != null" >
+      AND credit_limit >= #{creditLimit}
+    </if>
+    <if test="bankId != null" >
+      AND bank_id = #{bankId}
+    </if>
+    ORDER BY credit_limit DESC
+  </select>
+
 </mapper>

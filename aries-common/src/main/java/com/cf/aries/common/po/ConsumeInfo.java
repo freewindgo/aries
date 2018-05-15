@@ -12,6 +12,8 @@ public class ConsumeInfo {
 
     private String cardName;
 
+    private Long userId;
+
     private Integer bankId;
 
     private String bankName;

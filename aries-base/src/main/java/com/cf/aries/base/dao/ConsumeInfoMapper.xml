@@ -5,6 +5,7 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="card_id" property="cardId" jdbcType="BIGINT" />
     <result column="card_name" property="cardName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="bank_id" property="bankId" jdbcType="INTEGER" />
     <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
     <result column="pay_time" property="payTime" jdbcType="CHAR" />
@@ -77,8 +78,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, card_id, card_name, bank_id, bank_name, pay_time, bill, is_pay, month, type, 
-    wool_cycle, wool_rate, ctime, utime, is_delete
+    id, card_id, card_name, user_id, bank_id, bank_name, pay_time, bill, is_pay, month, 
+    type, wool_cycle, wool_rate, ctime, utime, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.ConsumeInfoExample" >
     select
@@ -112,15 +113,17 @@
   </delete>
   <insert id="insert" parameterType="com.cf.aries.common.po.ConsumeInfo" >
     insert into consume_info (id, card_id, card_name, 
-      bank_id, bank_name, pay_time, 
-      bill, is_pay, month, type, 
-      wool_cycle, wool_rate, ctime, 
-      utime, is_delete)
+      user_id, bank_id, bank_name, 
+      pay_time, bill, is_pay, 
+      month, type, wool_cycle, 
+      wool_rate, ctime, utime, is_delete
+      )
     values (#{id,jdbcType=BIGINT}, #{cardId,jdbcType=BIGINT}, #{cardName,jdbcType=VARCHAR}, 
-      #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, #{payTime,jdbcType=CHAR}, 
-      #{bill,jdbcType=INTEGER}, #{isPay,jdbcType=TINYINT}, #{month,jdbcType=CHAR}, #{type,jdbcType=TINYINT}, 
-      #{woolCycle,jdbcType=INTEGER}, #{woolRate,jdbcType=INTEGER}, #{ctime,jdbcType=CHAR}, 
-      #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT})
+      #{userId,jdbcType=BIGINT}, #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, 
+      #{payTime,jdbcType=CHAR}, #{bill,jdbcType=INTEGER}, #{isPay,jdbcType=TINYINT}, 
+      #{month,jdbcType=CHAR}, #{type,jdbcType=TINYINT}, #{woolCycle,jdbcType=INTEGER}, 
+      #{woolRate,jdbcType=INTEGER}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.ConsumeInfo" >
     insert into consume_info
@@ -133,6 +136,9 @@
       </if>
       <if test="cardName != null" >
         card_name,
+      </if>
+      <if test="userId != null" >
+        user_id,
       </if>
       <if test="bankId != null" >
         bank_id,
@@ -180,6 +186,9 @@
       </if>
       <if test="cardName != null" >
         #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="bankId != null" >
         #{bankId,jdbcType=INTEGER},
@@ -237,6 +246,9 @@
       <if test="record.cardName != null" >
         card_name = #{record.cardName,jdbcType=VARCHAR},
       </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
       <if test="record.bankId != null" >
         bank_id = #{record.bankId,jdbcType=INTEGER},
       </if>
@@ -283,6 +295,7 @@
     set id = #{record.id,jdbcType=BIGINT},
       card_id = #{record.cardId,jdbcType=BIGINT},
       card_name = #{record.cardName,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
       bank_id = #{record.bankId,jdbcType=INTEGER},
       bank_name = #{record.bankName,jdbcType=VARCHAR},
       pay_time = #{record.payTime,jdbcType=CHAR},
@@ -307,6 +320,9 @@
       </if>
       <if test="cardName != null" >
         card_name = #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="bankId != null" >
         bank_id = #{bankId,jdbcType=INTEGER},
@@ -351,6 +367,7 @@
     update consume_info
     set card_id = #{cardId,jdbcType=BIGINT},
       card_name = #{cardName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
       bank_id = #{bankId,jdbcType=INTEGER},
       bank_name = #{bankName,jdbcType=VARCHAR},
       pay_time = #{payTime,jdbcType=CHAR},
