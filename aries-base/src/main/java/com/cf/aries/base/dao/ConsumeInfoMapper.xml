@@ -12,8 +12,8 @@
     <result column="is_pay" property="isPay" jdbcType="TINYINT" />
     <result column="month" property="month" jdbcType="CHAR" />
     <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="wool_cycle" property="woolCycle" jdbcType="INTEGER" />
-    <result column="wool_rate" property="woolRate" jdbcType="INTEGER" />
+    <result column="sheep_cycle" property="sheepCycle" jdbcType="INTEGER" />
+    <result column="sheep_rate" property="sheepRate" jdbcType="INTEGER" />
     <result column="ctime" property="ctime" jdbcType="CHAR" />
     <result column="utime" property="utime" jdbcType="CHAR" />
     <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
@@ -77,8 +77,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, card_id, card_name, user_id, bank_id, pay_time, bill, is_pay, month, type, wool_cycle, 
-    wool_rate, ctime, utime, is_delete
+    id, card_id, card_name, user_id, bank_id, pay_time, bill, is_pay, month, type, sheep_cycle,
+    sheep_rate, ctime, utime, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.ConsumeInfoExample" >
     select
@@ -114,12 +114,12 @@
     insert into consume_info (id, card_id, card_name, 
       user_id, bank_id, pay_time, 
       bill, is_pay, month, type, 
-      wool_cycle, wool_rate, ctime, 
+      sheep_cycle, sheep_rate, ctime,
       utime, is_delete)
     values (#{id,jdbcType=BIGINT}, #{cardId,jdbcType=BIGINT}, #{cardName,jdbcType=VARCHAR}, 
       #{userId,jdbcType=BIGINT}, #{bankId,jdbcType=INTEGER}, #{payTime,jdbcType=CHAR}, 
       #{bill,jdbcType=INTEGER}, #{isPay,jdbcType=TINYINT}, #{month,jdbcType=CHAR}, #{type,jdbcType=TINYINT}, 
-      #{woolCycle,jdbcType=INTEGER}, #{woolRate,jdbcType=INTEGER}, #{ctime,jdbcType=CHAR}, 
+      #{sheepCycle,jdbcType=INTEGER}, #{sheepRate,jdbcType=INTEGER}, #{ctime,jdbcType=CHAR},
       #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.ConsumeInfo" >
@@ -155,11 +155,11 @@
       <if test="type != null" >
         type,
       </if>
-      <if test="woolCycle != null" >
-        wool_cycle,
+      <if test="sheepCycle != null" >
+        sheep_cycle,
       </if>
-      <if test="woolRate != null" >
-        wool_rate,
+      <if test="sheepRate != null" >
+        sheep_rate,
       </if>
       <if test="ctime != null" >
         ctime,
@@ -202,11 +202,11 @@
       <if test="type != null" >
         #{type,jdbcType=TINYINT},
       </if>
-      <if test="woolCycle != null" >
-        #{woolCycle,jdbcType=INTEGER},
+      <if test="sheepCycle != null" >
+        #{sheepCycle,jdbcType=INTEGER},
       </if>
-      <if test="woolRate != null" >
-        #{woolRate,jdbcType=INTEGER},
+      <if test="sheepRate != null" >
+        #{sheepRate,jdbcType=INTEGER},
       </if>
       <if test="ctime != null" >
         #{ctime,jdbcType=CHAR},
@@ -258,11 +258,11 @@
       <if test="record.type != null" >
         type = #{record.type,jdbcType=TINYINT},
       </if>
-      <if test="record.woolCycle != null" >
-        wool_cycle = #{record.woolCycle,jdbcType=INTEGER},
+      <if test="record.sheepCycle != null" >
+        sheep_cycle = #{record.sheepCycle,jdbcType=INTEGER},
       </if>
-      <if test="record.woolRate != null" >
-        wool_rate = #{record.woolRate,jdbcType=INTEGER},
+      <if test="record.sheepRate != null" >
+        sheep_rate = #{record.sheepRate,jdbcType=INTEGER},
       </if>
       <if test="record.ctime != null" >
         ctime = #{record.ctime,jdbcType=CHAR},
@@ -290,8 +290,8 @@
       is_pay = #{record.isPay,jdbcType=TINYINT},
       month = #{record.month,jdbcType=CHAR},
       type = #{record.type,jdbcType=TINYINT},
-      wool_cycle = #{record.woolCycle,jdbcType=INTEGER},
-      wool_rate = #{record.woolRate,jdbcType=INTEGER},
+      sheep_cycle = #{record.sheepCycle,jdbcType=INTEGER},
+      sheep_rate = #{record.sheepRate,jdbcType=INTEGER},
       ctime = #{record.ctime,jdbcType=CHAR},
       utime = #{record.utime,jdbcType=CHAR},
       is_delete = #{record.isDelete,jdbcType=TINYINT}
@@ -329,11 +329,11 @@
       <if test="type != null" >
         type = #{type,jdbcType=TINYINT},
       </if>
-      <if test="woolCycle != null" >
-        wool_cycle = #{woolCycle,jdbcType=INTEGER},
+      <if test="sheepCycle != null" >
+        sheep_cycle = #{sheepCycle,jdbcType=INTEGER},
       </if>
-      <if test="woolRate != null" >
-        wool_rate = #{woolRate,jdbcType=INTEGER},
+      <if test="sheepRate != null" >
+        sheep_rate = #{sheepRate,jdbcType=INTEGER},
       </if>
       <if test="ctime != null" >
         ctime = #{ctime,jdbcType=CHAR},
@@ -358,8 +358,8 @@
       is_pay = #{isPay,jdbcType=TINYINT},
       month = #{month,jdbcType=CHAR},
       type = #{type,jdbcType=TINYINT},
-      wool_cycle = #{woolCycle,jdbcType=INTEGER},
-      wool_rate = #{woolRate,jdbcType=INTEGER},
+      sheep_cycle = #{sheepCycle,jdbcType=INTEGER},
+      sheep_rate = #{sheepRate,jdbcType=INTEGER},
       ctime = #{ctime,jdbcType=CHAR},
       utime = #{utime,jdbcType=CHAR},
       is_delete = #{isDelete,jdbcType=TINYINT}
@@ -415,4 +415,21 @@
       AND `month` = #{month}
     </if>
   </select>
+
+  <select id="getConsumeStat" resultType="com.cf.aries.common.po.ConsumeStat">
+    SELECT
+        `month`,
+        user_id as userId,
+        sum(IF(type = 1, bill, 0)) AS bill,
+        sum(IF(type = 2, bill, 0)) AS sheep
+    FROM
+        consume_info
+    WHERE
+        `month` = #{month}
+        and utime > #{utime}
+    GROUP BY
+        user_id,
+        `month`
+  </select>
+
 </mapper>

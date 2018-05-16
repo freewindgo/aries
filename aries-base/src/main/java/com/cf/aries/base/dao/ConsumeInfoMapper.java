@@ -4,6 +4,7 @@ import com.cf.aries.common.po.ConsumeInfo;
 import com.cf.aries.common.po.ConsumeInfoExample;
 import java.util.List;
 
+import com.cf.aries.common.po.ConsumeStat;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -34,4 +35,6 @@ public interface ConsumeInfoMapper {
     int updateByPrimaryKey(ConsumeInfo record);
 
     int countByCondition(ConsumeInfo consumeInfo);
+
+    List<ConsumeStat> getConsumeStat(@Param("month") String month, @Param("utime") String utime);
 }

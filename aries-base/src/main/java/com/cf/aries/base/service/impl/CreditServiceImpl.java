@@ -2,10 +2,14 @@ package com.cf.aries.base.service.impl;
 
 import com.cf.aries.base.dao.CreditCardMapper;
 import com.cf.aries.base.service.CreditService;
+import com.cf.aries.common.enums.CommonEnum;
 import com.cf.aries.common.po.CreditCard;
+import com.cf.aries.common.po.CreditCardExample;
+import com.cf.aries.common.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,6 +42,16 @@ public class CreditServiceImpl implements CreditService{
     @Override
     public int updateCreditCard(CreditCard creditCard) {
         return creditCardMapper.updateByPrimaryKeySelective(creditCard);
+    }
+
+    @Override
+    public int realDelete(Integer days) {
+        String dateCondition = DateUtils.calDate(DateUtils.FORMAT_DEFAULT, new Date(), days);
+        CreditCardExample creditCardExample = new CreditCardExample();
+        creditCardExample.createCriteria()
+                .andUtimeLessThan(dateCondition)
+                .andIsDeleteEqualTo(CommonEnum.DELETED.getCode());
+        return creditCardMapper.deleteByExample(creditCardExample);
     }
 
 }

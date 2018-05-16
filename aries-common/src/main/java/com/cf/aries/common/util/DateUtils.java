@@ -31,4 +31,27 @@ public class DateUtils {
         return dateTime.toString(type);
     }
 
+    public static String formatDate(String type, DateTime dateTime) {
+        return dateTime.toString(type);
+    }
+
+    /**
+     * 计算日期,并按照type输出
+     * @param date
+     * @param days
+     * @return
+     */
+    public static String calDate(String type, Date date, Integer days){
+        return formatDate(type,new DateTime(date).plusDays(days));
+    }
+
+    /**
+     * 测试代码
+     * @param args
+     */
+    public static void main(String[] args) {
+        System.out.println(formatDate(FORMAT_FOR_DUSK,new Date()));
+
+    }
+
 }

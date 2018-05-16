@@ -1,6 +1,7 @@
 package com.cf.aries.base.service;
 
 import com.cf.aries.common.po.ConsumeInfo;
+import com.cf.aries.common.po.ConsumeStat;
 
 import java.util.List;
 
@@ -21,5 +22,15 @@ public interface ConsumeService {
     int insertConsumeInfo(ConsumeInfo consumeInfo);
 
     int updateConsumeInfo(ConsumeInfo consumeInfo);
+
+    int realDelete(Integer days);
+
+    List<ConsumeStat> statConsumeInfo(String month, String utime);
+
+    int insertConsumeStat(ConsumeStat consumeStat);
+
+    int updateConsumeStat(ConsumeStat consumeStat);
+
+    ConsumeStat getConsumeStat(ConsumeStat consumeStat);
 
 }

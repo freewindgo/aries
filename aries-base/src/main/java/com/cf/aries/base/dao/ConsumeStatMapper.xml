@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="bill" property="bill" jdbcType="INTEGER" />
-    <result column="wool" property="wool" jdbcType="INTEGER" />
+    <result column="sheep" property="sheep" jdbcType="INTEGER" />
     <result column="month" property="month" jdbcType="CHAR" />
     <result column="ctime" property="ctime" jdbcType="CHAR" />
     <result column="utime" property="utime" jdbcType="CHAR" />
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, user_id, bill, wool, month, ctime, utime, is_delete
+    id, user_id, bill, sheep, month, ctime, utime, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.ConsumeStatExample" >
     select
@@ -104,10 +104,10 @@
   </delete>
   <insert id="insert" parameterType="com.cf.aries.common.po.ConsumeStat" >
     insert into consume_stat (id, user_id, bill, 
-      wool, month, ctime, utime, 
+      sheep, month, ctime, utime, 
       is_delete)
     values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{bill,jdbcType=INTEGER}, 
-      #{wool,jdbcType=INTEGER}, #{month,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, 
+      #{sheep,jdbcType=INTEGER}, #{month,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, 
       #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.ConsumeStat" >
@@ -122,8 +122,8 @@
       <if test="bill != null" >
         bill,
       </if>
-      <if test="wool != null" >
-        wool,
+      <if test="sheep != null" >
+        sheep,
       </if>
       <if test="month != null" >
         month,
@@ -148,8 +148,8 @@
       <if test="bill != null" >
         #{bill,jdbcType=INTEGER},
       </if>
-      <if test="wool != null" >
-        #{wool,jdbcType=INTEGER},
+      <if test="sheep != null" >
+        #{sheep,jdbcType=INTEGER},
       </if>
       <if test="month != null" >
         #{month,jdbcType=CHAR},
@@ -183,8 +183,8 @@
       <if test="record.bill != null" >
         bill = #{record.bill,jdbcType=INTEGER},
       </if>
-      <if test="record.wool != null" >
-        wool = #{record.wool,jdbcType=INTEGER},
+      <if test="record.sheep != null" >
+        sheep = #{record.sheep,jdbcType=INTEGER},
       </if>
       <if test="record.month != null" >
         month = #{record.month,jdbcType=CHAR},
@@ -208,7 +208,7 @@
     set id = #{record.id,jdbcType=BIGINT},
       user_id = #{record.userId,jdbcType=BIGINT},
       bill = #{record.bill,jdbcType=INTEGER},
-      wool = #{record.wool,jdbcType=INTEGER},
+      sheep = #{record.sheep,jdbcType=INTEGER},
       month = #{record.month,jdbcType=CHAR},
       ctime = #{record.ctime,jdbcType=CHAR},
       utime = #{record.utime,jdbcType=CHAR},
@@ -226,8 +226,8 @@
       <if test="bill != null" >
         bill = #{bill,jdbcType=INTEGER},
       </if>
-      <if test="wool != null" >
-        wool = #{wool,jdbcType=INTEGER},
+      <if test="sheep != null" >
+        sheep = #{sheep,jdbcType=INTEGER},
       </if>
       <if test="month != null" >
         month = #{month,jdbcType=CHAR},
@@ -248,7 +248,7 @@
     update consume_stat
     set user_id = #{userId,jdbcType=BIGINT},
       bill = #{bill,jdbcType=INTEGER},
-      wool = #{wool,jdbcType=INTEGER},
+      sheep = #{sheep,jdbcType=INTEGER},
       month = #{month,jdbcType=CHAR},
       ctime = #{ctime,jdbcType=CHAR},
       utime = #{utime,jdbcType=CHAR},

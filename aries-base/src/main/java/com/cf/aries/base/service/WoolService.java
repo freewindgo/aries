@@ -21,4 +21,6 @@ public interface WoolService {
     int insertWoolInfo(WoolInfo woolInfo);
 
     int updateWoolInfo(WoolInfo woolInfo);
+
+    int realDelete(Integer days);
 }
