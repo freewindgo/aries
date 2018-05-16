@@ -31,7 +31,6 @@ public class CreditBusinessImpl implements CreditBusiness {
     @Autowired
     private CreditService creditService;
 
-    @Split("main")
     @Transactional
     @Override
     public Response saveCreditCard(CreditCard creditCard) {
@@ -49,7 +48,6 @@ public class CreditBusinessImpl implements CreditBusiness {
         return Response.success();
     }
 
-    @Split("main")
     @Override
     public Response getCreditCardById(Long cardId) {
         CreditCard creditCard = creditService.getCreditCardById(cardId);
@@ -59,7 +57,6 @@ public class CreditBusinessImpl implements CreditBusiness {
         return Response.success(creditCard);
     }
 
-    @Split("main")
     @Override
     public Response getCreditCards(CreditCard creditCard) {
         List<CreditCard> creditCardList = creditService.getCreditCards(creditCard);
@@ -69,7 +66,6 @@ public class CreditBusinessImpl implements CreditBusiness {
         return Response.success(creditCardList);
     }
 
-    @Split("main")
     @Transactional
     @Override
     public Response deleteCreditCard(Long cardId) {

@@ -1,7 +1,6 @@
 package com.cf.aries.base.business.impl;
 
 import com.cf.aries.base.business.UserBusiness;
-import com.cf.aries.base.dbrouter.annotation.Split;
 import com.cf.aries.base.service.UserService;
 import com.cf.aries.common.enums.CommonEnum;
 import com.cf.aries.common.message.UserMessage;
@@ -10,7 +9,6 @@ import com.cf.aries.common.util.DateUtils;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +29,6 @@ public class UserBusinessImpl implements UserBusiness {
     @Autowired
     private UserService userService;
 
-    @Split("main")
     @Transactional
     @Override
     public Response saveUserInfo(UserInfo userInfo) {
@@ -49,7 +46,6 @@ public class UserBusinessImpl implements UserBusiness {
         return Response.success();
     }
 
-    @Split("main")
     @Override
     public Response getUserInfoById(Long userId) {
         UserInfo userInfo = userService.getUserInfoById(userId);
@@ -59,7 +55,6 @@ public class UserBusinessImpl implements UserBusiness {
         return Response.success(userInfo);
     }
 
-    @Split("main")
     @Override
     public Response checkPassword(Long userId, String password) {
         UserInfo userInfo = userService.getUserInfoById(userId);

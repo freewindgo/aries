@@ -14,7 +14,7 @@ public class ConsumeStat {
 
     private Integer bill;
 
-    private Integer wool;
+    private Integer sheep;
 
     private String month;
 

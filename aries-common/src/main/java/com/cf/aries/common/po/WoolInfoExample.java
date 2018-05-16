@@ -294,6 +294,126 @@ public class WoolInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdEqualTo(Long value) {
+            addCriterion("user_id =", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotEqualTo(Long value) {
+            addCriterion("user_id <>", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThan(Long value) {
+            addCriterion("user_id >", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_id >=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThan(Long value) {
+            addCriterion("user_id <", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_id <=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIn(List<Long> values) {
+            addCriterion("user_id in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotIn(List<Long> values) {
+            addCriterion("user_id not in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdBetween(Long value1, Long value2) {
+            addCriterion("user_id between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdIsNull() {
+            addCriterion("consume_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdIsNotNull() {
+            addCriterion("consume_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdEqualTo(Long value) {
+            addCriterion("consume_id =", value, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdNotEqualTo(Long value) {
+            addCriterion("consume_id <>", value, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdGreaterThan(Long value) {
+            addCriterion("consume_id >", value, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("consume_id >=", value, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdLessThan(Long value) {
+            addCriterion("consume_id <", value, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdLessThanOrEqualTo(Long value) {
+            addCriterion("consume_id <=", value, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdIn(List<Long> values) {
+            addCriterion("consume_id in", values, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdNotIn(List<Long> values) {
+            addCriterion("consume_id not in", values, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdBetween(Long value1, Long value2) {
+            addCriterion("consume_id between", value1, value2, "consumeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConsumeIdNotBetween(Long value1, Long value2) {
+            addCriterion("consume_id not between", value1, value2, "consumeId");
+            return (Criteria) this;
+        }
+
         public Criteria andWoolNameIsNull() {
             addCriterion("wool_name is null");
             return (Criteria) this;
@@ -504,63 +624,63 @@ public class WoolInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+        public Criteria andWoolValueIsNull() {
+            addCriterion("wool_value is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+        public Criteria andWoolValueIsNotNull() {
+            addCriterion("wool_value is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
+        public Criteria andWoolValueEqualTo(Integer value) {
+            addCriterion("wool_value =", value, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
+        public Criteria andWoolValueNotEqualTo(Integer value) {
+            addCriterion("wool_value <>", value, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
+        public Criteria andWoolValueGreaterThan(Integer value) {
+            addCriterion("wool_value >", value, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
+        public Criteria andWoolValueGreaterThanOrEqualTo(Integer value) {
+            addCriterion("wool_value >=", value, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
+        public Criteria andWoolValueLessThan(Integer value) {
+            addCriterion("wool_value <", value, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
+        public Criteria andWoolValueLessThanOrEqualTo(Integer value) {
+            addCriterion("wool_value <=", value, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
+        public Criteria andWoolValueIn(List<Integer> values) {
+            addCriterion("wool_value in", values, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
+        public Criteria andWoolValueNotIn(List<Integer> values) {
+            addCriterion("wool_value not in", values, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
+        public Criteria andWoolValueBetween(Integer value1, Integer value2) {
+            addCriterion("wool_value between", value1, value2, "woolValue");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
+        public Criteria andWoolValueNotBetween(Integer value1, Integer value2) {
+            addCriterion("wool_value not between", value1, value2, "woolValue");
             return (Criteria) this;
         }
 

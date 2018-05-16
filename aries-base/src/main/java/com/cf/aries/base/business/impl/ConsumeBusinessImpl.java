@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +32,7 @@ public class ConsumeBusinessImpl implements ConsumeBusiness {
     @Autowired
     private ConsumeService consumeService;
 
+    @Transactional
     @Override
     public Response saveConsumeInfo(ConsumeInfo consumeInfo) {
         if (EmptyUtils.isEmpty(consumeInfo.getId())) {
@@ -75,6 +77,7 @@ public class ConsumeBusinessImpl implements ConsumeBusiness {
 
     }
 
+    @Transactional
     @Override
     public Response deleteConsumeInfo(Long consumeId) {
         ConsumeInfo consumeInfo = new ConsumeInfo();

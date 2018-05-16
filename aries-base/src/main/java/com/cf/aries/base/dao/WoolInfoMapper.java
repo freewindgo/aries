@@ -30,4 +30,9 @@ public interface WoolInfoMapper {
     int updateByPrimaryKeySelective(WoolInfo record);
 
     int updateByPrimaryKey(WoolInfo record);
+
+    List<WoolInfo> selectByCondition(WoolInfo woolInfo);
+
+    int countByCondition(WoolInfo woolInfo);
+
 }

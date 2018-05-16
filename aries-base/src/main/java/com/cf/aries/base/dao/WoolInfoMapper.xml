@@ -5,10 +5,12 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="bank_id" property="bankId" jdbcType="INTEGER" />
     <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="consume_id" property="consumeId" jdbcType="BIGINT" />
     <result column="wool_name" property="woolName" jdbcType="VARCHAR" />
     <result column="wool_condition" property="woolCondition" jdbcType="VARCHAR" />
     <result column="wool_content" property="woolContent" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="wool_value" property="woolValue" jdbcType="INTEGER" />
     <result column="expire_day" property="expireDay" jdbcType="CHAR" />
     <result column="ctime" property="ctime" jdbcType="CHAR" />
     <result column="utime" property="utime" jdbcType="CHAR" />
@@ -73,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, bank_id, bank_name, wool_name, wool_condition, wool_content, user_id, expire_day, 
-    ctime, utime, is_delete
+    id, bank_id, bank_name, user_id, consume_id, wool_name, wool_condition, wool_content, 
+    wool_value, expire_day, ctime, utime, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.WoolInfoExample" >
     select
@@ -108,13 +110,15 @@
   </delete>
   <insert id="insert" parameterType="com.cf.aries.common.po.WoolInfo" >
     insert into wool_info (id, bank_id, bank_name, 
-      wool_name, wool_condition, wool_content, 
-      user_id, expire_day, ctime, 
-      utime, is_delete)
+      user_id, consume_id, wool_name, 
+      wool_condition, wool_content, wool_value, 
+      expire_day, ctime, utime, is_delete
+      )
     values (#{id,jdbcType=BIGINT}, #{bankId,jdbcType=INTEGER}, #{bankName,jdbcType=VARCHAR}, 
-      #{woolName,jdbcType=VARCHAR}, #{woolCondition,jdbcType=VARCHAR}, #{woolContent,jdbcType=VARCHAR}, 
-      #{userId,jdbcType=BIGINT}, #{expireDay,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, 
-      #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT})
+      #{userId,jdbcType=BIGINT}, #{consumeId,jdbcType=BIGINT}, #{woolName,jdbcType=VARCHAR}, 
+      #{woolCondition,jdbcType=VARCHAR}, #{woolContent,jdbcType=VARCHAR}, #{woolValue,jdbcType=INTEGER}, 
+      #{expireDay,jdbcType=CHAR}, #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.WoolInfo" >
     insert into wool_info
@@ -128,6 +132,12 @@
       <if test="bankName != null" >
         bank_name,
       </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="consumeId != null" >
+        consume_id,
+      </if>
       <if test="woolName != null" >
         wool_name,
       </if>
@@ -137,8 +147,8 @@
       <if test="woolContent != null" >
         wool_content,
       </if>
-      <if test="userId != null" >
-        user_id,
+      <if test="woolValue != null" >
+        wool_value,
       </if>
       <if test="expireDay != null" >
         expire_day,
@@ -163,6 +173,12 @@
       <if test="bankName != null" >
         #{bankName,jdbcType=VARCHAR},
       </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="consumeId != null" >
+        #{consumeId,jdbcType=BIGINT},
+      </if>
       <if test="woolName != null" >
         #{woolName,jdbcType=VARCHAR},
       </if>
@@ -172,8 +188,8 @@
       <if test="woolContent != null" >
         #{woolContent,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=BIGINT},
+      <if test="woolValue != null" >
+        #{woolValue,jdbcType=INTEGER},
       </if>
       <if test="expireDay != null" >
         #{expireDay,jdbcType=CHAR},
@@ -207,6 +223,12 @@
       <if test="record.bankName != null" >
         bank_name = #{record.bankName,jdbcType=VARCHAR},
       </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.consumeId != null" >
+        consume_id = #{record.consumeId,jdbcType=BIGINT},
+      </if>
       <if test="record.woolName != null" >
         wool_name = #{record.woolName,jdbcType=VARCHAR},
       </if>
@@ -216,8 +238,8 @@
       <if test="record.woolContent != null" >
         wool_content = #{record.woolContent,jdbcType=VARCHAR},
       </if>
-      <if test="record.userId != null" >
-        user_id = #{record.userId,jdbcType=BIGINT},
+      <if test="record.woolValue != null" >
+        wool_value = #{record.woolValue,jdbcType=INTEGER},
       </if>
       <if test="record.expireDay != null" >
         expire_day = #{record.expireDay,jdbcType=CHAR},
@@ -241,10 +263,12 @@
     set id = #{record.id,jdbcType=BIGINT},
       bank_id = #{record.bankId,jdbcType=INTEGER},
       bank_name = #{record.bankName,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      consume_id = #{record.consumeId,jdbcType=BIGINT},
       wool_name = #{record.woolName,jdbcType=VARCHAR},
       wool_condition = #{record.woolCondition,jdbcType=VARCHAR},
       wool_content = #{record.woolContent,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=BIGINT},
+      wool_value = #{record.woolValue,jdbcType=INTEGER},
       expire_day = #{record.expireDay,jdbcType=CHAR},
       ctime = #{record.ctime,jdbcType=CHAR},
       utime = #{record.utime,jdbcType=CHAR},
@@ -262,6 +286,12 @@
       <if test="bankName != null" >
         bank_name = #{bankName,jdbcType=VARCHAR},
       </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="consumeId != null" >
+        consume_id = #{consumeId,jdbcType=BIGINT},
+      </if>
       <if test="woolName != null" >
         wool_name = #{woolName,jdbcType=VARCHAR},
       </if>
@@ -271,8 +301,8 @@
       <if test="woolContent != null" >
         wool_content = #{woolContent,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=BIGINT},
+      <if test="woolValue != null" >
+        wool_value = #{woolValue,jdbcType=INTEGER},
       </if>
       <if test="expireDay != null" >
         expire_day = #{expireDay,jdbcType=CHAR},
@@ -293,14 +323,53 @@
     update wool_info
     set bank_id = #{bankId,jdbcType=INTEGER},
       bank_name = #{bankName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      consume_id = #{consumeId,jdbcType=BIGINT},
       wool_name = #{woolName,jdbcType=VARCHAR},
       wool_condition = #{woolCondition,jdbcType=VARCHAR},
       wool_content = #{woolContent,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=BIGINT},
+      wool_value = #{woolValue,jdbcType=INTEGER},
       expire_day = #{expireDay,jdbcType=CHAR},
       ctime = #{ctime,jdbcType=CHAR},
       utime = #{utime,jdbcType=CHAR},
       is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.WoolInfo" >
+    select
+    <include refid="Base_Column_List" />
+    from wool_info
+    where is_delete = 1
+    <if test="userId != null" >
+      AND user_id = #{userId}
+    </if>
+    <if test="consumeId != null" >
+      AND consume_id = #{consumeId}
+    </if>
+    <if test="bankId != null" >
+      AND bank_id = #{bankId}
+    </if>
+    <if test="start != null and size != null" >
+      LIMIT #{start},#{size}
+    </if>
+
+  </select>
+
+  <select id="countByCondition" resultType="java.lang.Integer" parameterType="com.cf.aries.common.po.WoolInfo" >
+    select
+    count(1)
+    from wool_info
+    where is_delete = 1
+    <if test="userId != null" >
+      AND user_id = #{userId}
+    </if>
+    <if test="consumeId != null" >
+      AND consume_id = #{consumeId}
+    </if>
+    <if test="bankId != null" >
+      AND bank_id = #{bankId}
+    </if>
+  </select>
+
 </mapper>

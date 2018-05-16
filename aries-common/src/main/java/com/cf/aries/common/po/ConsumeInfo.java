@@ -30,9 +30,9 @@ public class ConsumeInfo extends PageInfo {
 
     private Byte type;
 
-    private Integer woolCycle;
+    private Integer sheepCycle;
 
-    private Integer woolRate;
+    private Integer sheepRate;
 
     private String ctime;
 

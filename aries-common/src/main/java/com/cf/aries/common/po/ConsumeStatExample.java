@@ -284,63 +284,63 @@ public class ConsumeStatExample {
             return (Criteria) this;
         }
 
-        public Criteria andWoolIsNull() {
-            addCriterion("wool is null");
+        public Criteria andSheepIsNull() {
+            addCriterion("sheep is null");
             return (Criteria) this;
         }
 
-        public Criteria andWoolIsNotNull() {
-            addCriterion("wool is not null");
+        public Criteria andSheepIsNotNull() {
+            addCriterion("sheep is not null");
             return (Criteria) this;
         }
 
-        public Criteria andWoolEqualTo(Integer value) {
-            addCriterion("wool =", value, "wool");
+        public Criteria andSheepEqualTo(Integer value) {
+            addCriterion("sheep =", value, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolNotEqualTo(Integer value) {
-            addCriterion("wool <>", value, "wool");
+        public Criteria andSheepNotEqualTo(Integer value) {
+            addCriterion("sheep <>", value, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolGreaterThan(Integer value) {
-            addCriterion("wool >", value, "wool");
+        public Criteria andSheepGreaterThan(Integer value) {
+            addCriterion("sheep >", value, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolGreaterThanOrEqualTo(Integer value) {
-            addCriterion("wool >=", value, "wool");
+        public Criteria andSheepGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sheep >=", value, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolLessThan(Integer value) {
-            addCriterion("wool <", value, "wool");
+        public Criteria andSheepLessThan(Integer value) {
+            addCriterion("sheep <", value, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolLessThanOrEqualTo(Integer value) {
-            addCriterion("wool <=", value, "wool");
+        public Criteria andSheepLessThanOrEqualTo(Integer value) {
+            addCriterion("sheep <=", value, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolIn(List<Integer> values) {
-            addCriterion("wool in", values, "wool");
+        public Criteria andSheepIn(List<Integer> values) {
+            addCriterion("sheep in", values, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolNotIn(List<Integer> values) {
-            addCriterion("wool not in", values, "wool");
+        public Criteria andSheepNotIn(List<Integer> values) {
+            addCriterion("sheep not in", values, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolBetween(Integer value1, Integer value2) {
-            addCriterion("wool between", value1, value2, "wool");
+        public Criteria andSheepBetween(Integer value1, Integer value2) {
+            addCriterion("sheep between", value1, value2, "sheep");
             return (Criteria) this;
         }
 
-        public Criteria andWoolNotBetween(Integer value1, Integer value2) {
-            addCriterion("wool not between", value1, value2, "wool");
+        public Criteria andSheepNotBetween(Integer value1, Integer value2) {
+            addCriterion("sheep not between", value1, value2, "sheep");
             return (Criteria) this;
         }
 
