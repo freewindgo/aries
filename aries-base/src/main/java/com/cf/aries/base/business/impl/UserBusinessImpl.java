@@ -62,8 +62,8 @@ public class UserBusinessImpl implements UserBusiness {
             return Response.error(UserMessage.NO_USER);
         }
         if (!password.equals(userInfo.getPassword())) {
-            return Response.error(UserMessage.PASSWORD_INVALID);
+            return Response.success(false);
         }
-        return Response.success();
+        return Response.success(true);
     }
 }

@@ -76,3 +76,7 @@ spring:
   application:
     name: aries-web
 
+service:
+  aries-base:
+    name: aries-base
+    path: /aries-base
