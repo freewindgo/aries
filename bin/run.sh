@@ -236,7 +236,7 @@ function stop_http_server {
   echo "shutdown url:$shutdown_url"
   curl -X POST "$shutdown_url"
   echo ""
-  echo "wait amoment ......."
+  echo "wait a moment ......."
   sleep 6
 }
 
