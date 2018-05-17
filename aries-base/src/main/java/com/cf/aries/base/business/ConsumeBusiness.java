@@ -1,6 +1,7 @@
 package com.cf.aries.base.business;
 
 import com.cf.aries.common.po.ConsumeInfo;
+import com.cf.aries.common.po.ConsumeStat;
 import com.cf.aries.common.util.Response;
 
 /**
@@ -18,5 +19,9 @@ public interface ConsumeBusiness {
     Response getConsumeInfos(ConsumeInfo consumeInfo);
 
     Response deleteConsumeInfo(Long consumeId);
+
+    Response getConsumeStats(ConsumeStat consumeStat);
+
+    Response getConsumeStatsForm(Long userId, String startMonth, String endMonth);
 
 }

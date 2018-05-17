@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(value={"isDelete"})
-public class ConsumeStat {
+public class ConsumeStat extends PageInfo{
     private Long id;
 
     private Long userId;

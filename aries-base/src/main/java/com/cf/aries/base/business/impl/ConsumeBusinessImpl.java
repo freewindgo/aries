@@ -6,6 +6,7 @@ import com.cf.aries.common.enums.CommonEnum;
 import com.cf.aries.common.message.ConsumeMessage;
 import com.cf.aries.common.message.ResponseMessage;
 import com.cf.aries.common.po.ConsumeInfo;
+import com.cf.aries.common.po.ConsumeStat;
 import com.cf.aries.common.util.DateUtils;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
@@ -86,5 +87,23 @@ public class ConsumeBusinessImpl implements ConsumeBusiness {
         consumeInfo.setIsDelete(CommonEnum.DELETED.getCode());
         consumeService.updateConsumeInfo(consumeInfo);
         return Response.success();
+    }
+
+    @Override
+    public Response getConsumeStats(ConsumeStat consumeStat) {
+        List<ConsumeStat> consumeStatList = consumeService.getConsumeStats(consumeStat);
+        if (EmptyUtils.isEmpty(consumeStatList)) {
+            return Response.error(ConsumeMessage.NO_INFO);
+        }
+        return Response.success(consumeStatList);
+    }
+
+    @Override
+    public Response getConsumeStatsForm(Long userId, String startMonth, String endMonth) {
+        List<ConsumeStat> consumeStatList = consumeService.getConsumeStatsForm(userId, startMonth, endMonth);
+        if (EmptyUtils.isEmpty(consumeStatList)) {
+            return Response.error(ConsumeMessage.NO_INFO);
+        }
+        return Response.success(consumeStatList);
     }
 }

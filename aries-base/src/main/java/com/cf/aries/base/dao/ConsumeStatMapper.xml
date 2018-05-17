@@ -255,4 +255,24 @@
       is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.ConsumeStat">
+    select
+    <include refid="Base_Column_List" />
+    from consume_stat
+    where is_delete = 1
+    <if test="userId != null" >
+      AND user_id = #{userId}
+    </if>
+    <if test="month != null" >
+      AND `month` like concat('%', #{month} ,'%')
+    </if>
+    <if test="bill != null" >
+      AND bill >= #{bill}
+    </if>
+    <if test="sheep != null" >
+      AND sheep >= #{sheep}
+    </if>
+    ORDER BY `month` DESC
+  </select>
 </mapper>

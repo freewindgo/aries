@@ -30,4 +30,6 @@ public interface ConsumeStatMapper {
     int updateByPrimaryKeySelective(ConsumeStat record);
 
     int updateByPrimaryKey(ConsumeStat record);
+
+    List<ConsumeStat> selectByCondition(ConsumeStat consumeStat);
 }

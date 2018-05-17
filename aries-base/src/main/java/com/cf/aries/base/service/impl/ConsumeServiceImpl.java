@@ -96,4 +96,19 @@ public class ConsumeServiceImpl implements ConsumeService {
         return consumeStatList.get(0);
     }
 
+    @Override
+    public List<ConsumeStat> getConsumeStats(ConsumeStat consumeStat) {
+        return consumeStatMapper.selectByCondition(consumeStat);
+    }
+
+    @Override
+    public List<ConsumeStat> getConsumeStatsForm(Long userId, String startMonth, String endMonth) {
+        ConsumeStatExample consumeStatExample = new ConsumeStatExample();
+        consumeStatExample.createCriteria()
+                .andUserIdEqualTo(userId)
+                .andMonthGreaterThanOrEqualTo(startMonth)
+                .andMonthLessThanOrEqualTo(endMonth)
+                .andIsDeleteEqualTo(CommonEnum.NORMAL.getCode());
+        return consumeStatMapper.selectByExample(consumeStatExample);
+    }
 }
