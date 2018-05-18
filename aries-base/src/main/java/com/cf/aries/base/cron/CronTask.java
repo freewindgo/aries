@@ -33,7 +33,7 @@ public class CronTask {
     /**
      * 每天1点清理数据库中is_delete为2并且删除时间已超过REAL_DELETE_DAYS的数据
      */
-    @Scheduled(cron = "0 0 1 * * ? ")
+    @Scheduled(cron = "0 1 * * * ? ")
     public void deleteExpireData() {
         try {
             cronBusiness.deleteExpireData(REAL_DELETE_DAYS);
