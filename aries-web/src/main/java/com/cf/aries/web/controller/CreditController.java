@@ -90,7 +90,7 @@ public class CreditController {
 
 
     @GetMapping("/creditAdvice")
-    public Response creditAdvice(@RequestParam Long userId){
+    public Response<CreditCard> creditAdvice(@RequestParam Long userId){
         try {
             return creditClient.creditAdvice(userId);
         } catch (Exception e) {

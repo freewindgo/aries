@@ -63,6 +63,6 @@ public interface CreditClient {
      * @return
      */
     @GetMapping("/creditAdvice")
-    Response<CreditCard> creditAdvice(@RequestParam Long userId);
+    Response<CreditCard> creditAdvice(@RequestParam("userId") Long userId);
 
 }
