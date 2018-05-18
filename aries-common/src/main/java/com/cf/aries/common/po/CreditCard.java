@@ -30,19 +30,21 @@ public class CreditCard {
 
     private Integer creditTotalLimit;
 
-    private String billDay;
+    private Integer billDay;
 
-    private String payDay;
+    private Integer payDay;
 
-    private Byte billCycle;
+    private Integer billCycle;
 
-    private Byte remindDay;
+    private Integer remindDay;
 
     private String expireDay;
 
     private String ctime;
 
     private String utime;
+
+    private Byte type;
 
     private Byte isDelete;
 

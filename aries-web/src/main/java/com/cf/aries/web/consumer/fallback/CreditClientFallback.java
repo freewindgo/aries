@@ -45,6 +45,12 @@ public class CreditClientFallback implements FallbackFactory<CreditClient> {
                 log.error("RPC FALLBACK CreditClient.deleteCreditCard, param is: {},error is :{}", id.toString(), cause);
                 return Response.error();
             }
+
+            @Override
+            public Response<CreditCard> creditAdvice(Long userId) {
+                log.error("RPC FALLBACK CreditClient.creditAdvice, param is: {},error is :{}", userId.toString(), cause);
+                return Response.error();
+            }
         };
     }
 

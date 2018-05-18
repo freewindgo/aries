@@ -57,4 +57,12 @@ public interface CreditClient {
     @GetMapping("/credit/deleteCreditCard")
     Response deleteCreditCard(@RequestParam("id") Long id);
 
+    /**
+     * 获取信用卡建议
+     * @param userId
+     * @return
+     */
+    @GetMapping("/creditAdvice")
+    Response<CreditCard> creditAdvice(@RequestParam Long userId);
+
 }

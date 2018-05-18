@@ -734,62 +734,52 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
-        public Criteria andBillDayEqualTo(String value) {
+        public Criteria andBillDayEqualTo(Integer value) {
             addCriterion("bill_day =", value, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayNotEqualTo(String value) {
+        public Criteria andBillDayNotEqualTo(Integer value) {
             addCriterion("bill_day <>", value, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayGreaterThan(String value) {
+        public Criteria andBillDayGreaterThan(Integer value) {
             addCriterion("bill_day >", value, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayGreaterThanOrEqualTo(String value) {
+        public Criteria andBillDayGreaterThanOrEqualTo(Integer value) {
             addCriterion("bill_day >=", value, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayLessThan(String value) {
+        public Criteria andBillDayLessThan(Integer value) {
             addCriterion("bill_day <", value, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayLessThanOrEqualTo(String value) {
+        public Criteria andBillDayLessThanOrEqualTo(Integer value) {
             addCriterion("bill_day <=", value, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayLike(String value) {
-            addCriterion("bill_day like", value, "billDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andBillDayNotLike(String value) {
-            addCriterion("bill_day not like", value, "billDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andBillDayIn(List<String> values) {
+        public Criteria andBillDayIn(List<Integer> values) {
             addCriterion("bill_day in", values, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayNotIn(List<String> values) {
+        public Criteria andBillDayNotIn(List<Integer> values) {
             addCriterion("bill_day not in", values, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayBetween(String value1, String value2) {
+        public Criteria andBillDayBetween(Integer value1, Integer value2) {
             addCriterion("bill_day between", value1, value2, "billDay");
             return (Criteria) this;
         }
 
-        public Criteria andBillDayNotBetween(String value1, String value2) {
+        public Criteria andBillDayNotBetween(Integer value1, Integer value2) {
             addCriterion("bill_day not between", value1, value2, "billDay");
             return (Criteria) this;
         }
@@ -804,62 +794,52 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
-        public Criteria andPayDayEqualTo(String value) {
+        public Criteria andPayDayEqualTo(Integer value) {
             addCriterion("pay_day =", value, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayNotEqualTo(String value) {
+        public Criteria andPayDayNotEqualTo(Integer value) {
             addCriterion("pay_day <>", value, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayGreaterThan(String value) {
+        public Criteria andPayDayGreaterThan(Integer value) {
             addCriterion("pay_day >", value, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayGreaterThanOrEqualTo(String value) {
+        public Criteria andPayDayGreaterThanOrEqualTo(Integer value) {
             addCriterion("pay_day >=", value, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayLessThan(String value) {
+        public Criteria andPayDayLessThan(Integer value) {
             addCriterion("pay_day <", value, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayLessThanOrEqualTo(String value) {
+        public Criteria andPayDayLessThanOrEqualTo(Integer value) {
             addCriterion("pay_day <=", value, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayLike(String value) {
-            addCriterion("pay_day like", value, "payDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayDayNotLike(String value) {
-            addCriterion("pay_day not like", value, "payDay");
-            return (Criteria) this;
-        }
-
-        public Criteria andPayDayIn(List<String> values) {
+        public Criteria andPayDayIn(List<Integer> values) {
             addCriterion("pay_day in", values, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayNotIn(List<String> values) {
+        public Criteria andPayDayNotIn(List<Integer> values) {
             addCriterion("pay_day not in", values, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayBetween(String value1, String value2) {
+        public Criteria andPayDayBetween(Integer value1, Integer value2) {
             addCriterion("pay_day between", value1, value2, "payDay");
             return (Criteria) this;
         }
 
-        public Criteria andPayDayNotBetween(String value1, String value2) {
+        public Criteria andPayDayNotBetween(Integer value1, Integer value2) {
             addCriterion("pay_day not between", value1, value2, "payDay");
             return (Criteria) this;
         }
@@ -874,52 +854,52 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleEqualTo(Byte value) {
+        public Criteria andBillCycleEqualTo(Integer value) {
             addCriterion("bill_cycle =", value, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleNotEqualTo(Byte value) {
+        public Criteria andBillCycleNotEqualTo(Integer value) {
             addCriterion("bill_cycle <>", value, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleGreaterThan(Byte value) {
+        public Criteria andBillCycleGreaterThan(Integer value) {
             addCriterion("bill_cycle >", value, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleGreaterThanOrEqualTo(Byte value) {
+        public Criteria andBillCycleGreaterThanOrEqualTo(Integer value) {
             addCriterion("bill_cycle >=", value, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleLessThan(Byte value) {
+        public Criteria andBillCycleLessThan(Integer value) {
             addCriterion("bill_cycle <", value, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleLessThanOrEqualTo(Byte value) {
+        public Criteria andBillCycleLessThanOrEqualTo(Integer value) {
             addCriterion("bill_cycle <=", value, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleIn(List<Byte> values) {
+        public Criteria andBillCycleIn(List<Integer> values) {
             addCriterion("bill_cycle in", values, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleNotIn(List<Byte> values) {
+        public Criteria andBillCycleNotIn(List<Integer> values) {
             addCriterion("bill_cycle not in", values, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleBetween(Byte value1, Byte value2) {
+        public Criteria andBillCycleBetween(Integer value1, Integer value2) {
             addCriterion("bill_cycle between", value1, value2, "billCycle");
             return (Criteria) this;
         }
 
-        public Criteria andBillCycleNotBetween(Byte value1, Byte value2) {
+        public Criteria andBillCycleNotBetween(Integer value1, Integer value2) {
             addCriterion("bill_cycle not between", value1, value2, "billCycle");
             return (Criteria) this;
         }
@@ -934,52 +914,52 @@ public class CreditCardExample {
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayEqualTo(Byte value) {
+        public Criteria andRemindDayEqualTo(Integer value) {
             addCriterion("remind_day =", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayNotEqualTo(Byte value) {
+        public Criteria andRemindDayNotEqualTo(Integer value) {
             addCriterion("remind_day <>", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayGreaterThan(Byte value) {
+        public Criteria andRemindDayGreaterThan(Integer value) {
             addCriterion("remind_day >", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayGreaterThanOrEqualTo(Byte value) {
+        public Criteria andRemindDayGreaterThanOrEqualTo(Integer value) {
             addCriterion("remind_day >=", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayLessThan(Byte value) {
+        public Criteria andRemindDayLessThan(Integer value) {
             addCriterion("remind_day <", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayLessThanOrEqualTo(Byte value) {
+        public Criteria andRemindDayLessThanOrEqualTo(Integer value) {
             addCriterion("remind_day <=", value, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayIn(List<Byte> values) {
+        public Criteria andRemindDayIn(List<Integer> values) {
             addCriterion("remind_day in", values, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayNotIn(List<Byte> values) {
+        public Criteria andRemindDayNotIn(List<Integer> values) {
             addCriterion("remind_day not in", values, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayBetween(Byte value1, Byte value2) {
+        public Criteria andRemindDayBetween(Integer value1, Integer value2) {
             addCriterion("remind_day between", value1, value2, "remindDay");
             return (Criteria) this;
         }
 
-        public Criteria andRemindDayNotBetween(Byte value1, Byte value2) {
+        public Criteria andRemindDayNotBetween(Integer value1, Integer value2) {
             addCriterion("remind_day not between", value1, value2, "remindDay");
             return (Criteria) this;
         }
@@ -1191,6 +1171,66 @@ public class CreditCardExample {
 
         public Criteria andUtimeNotBetween(String value1, String value2) {
             addCriterion("utime not between", value1, value2, "utime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIsNull() {
+            addCriterion("type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIsNotNull() {
+            addCriterion("type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeEqualTo(Byte value) {
+            addCriterion("type =", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotEqualTo(Byte value) {
+            addCriterion("type <>", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThan(Byte value) {
+            addCriterion("type >", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThanOrEqualTo(Byte value) {
+            addCriterion("type >=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThan(Byte value) {
+            addCriterion("type <", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThanOrEqualTo(Byte value) {
+            addCriterion("type <=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIn(List<Byte> values) {
+            addCriterion("type in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotIn(List<Byte> values) {
+            addCriterion("type not in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeBetween(Byte value1, Byte value2) {
+            addCriterion("type between", value1, value2, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotBetween(Byte value1, Byte value2) {
+            addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
 

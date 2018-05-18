@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.ResultSet;
 import java.util.Date;
 import java.util.List;
 
@@ -75,5 +76,11 @@ public class CreditBusinessImpl implements CreditBusiness {
         creditCard.setIsDelete(CommonEnum.DELETED.getCode());
         creditService.updateCreditCard(creditCard);
         return Response.success();
+    }
+
+    @Override
+    public Response getCreditAdvice(Long userId) {
+        CreditCard creditCard = creditService.getCreditAdvice(userId);
+        return Response.success(creditCard);
     }
 }

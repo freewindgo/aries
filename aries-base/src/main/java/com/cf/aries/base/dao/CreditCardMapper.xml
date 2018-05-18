@@ -12,13 +12,14 @@
     <result column="credit_temp_limit" property="creditTempLimit" jdbcType="INTEGER" />
     <result column="credit_other_limit" property="creditOtherLimit" jdbcType="INTEGER" />
     <result column="credit_total_limit" property="creditTotalLimit" jdbcType="INTEGER" />
-    <result column="bill_day" property="billDay" jdbcType="CHAR" />
-    <result column="pay_day" property="payDay" jdbcType="CHAR" />
-    <result column="bill_cycle" property="billCycle" jdbcType="TINYINT" />
-    <result column="remind_day" property="remindDay" jdbcType="TINYINT" />
+    <result column="bill_day" property="billDay" jdbcType="INTEGER" />
+    <result column="pay_day" property="payDay" jdbcType="INTEGER" />
+    <result column="bill_cycle" property="billCycle" jdbcType="INTEGER" />
+    <result column="remind_day" property="remindDay" jdbcType="INTEGER" />
     <result column="expire_day" property="expireDay" jdbcType="CHAR" />
     <result column="ctime" property="ctime" jdbcType="CHAR" />
     <result column="utime" property="utime" jdbcType="CHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
     <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -82,7 +83,7 @@
   <sql id="Base_Column_List" >
     id, user_id, bank_id, card_no, card_name, card_level, credit_limit, credit_temp_limit, 
     credit_other_limit, credit_total_limit, bill_day, pay_day, bill_cycle, remind_day, 
-    expire_day, ctime, utime, is_delete
+    expire_day, ctime, utime, type, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.CreditCardExample" >
     select
@@ -120,13 +121,15 @@
       credit_limit, credit_temp_limit, credit_other_limit, 
       credit_total_limit, bill_day, pay_day, 
       bill_cycle, remind_day, expire_day, 
-      ctime, utime, is_delete)
+      ctime, utime, type, is_delete
+      )
     values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{bankId,jdbcType=INTEGER}, 
       #{cardNo,jdbcType=CHAR}, #{cardName,jdbcType=VARCHAR}, #{cardLevel,jdbcType=TINYINT}, 
       #{creditLimit,jdbcType=INTEGER}, #{creditTempLimit,jdbcType=INTEGER}, #{creditOtherLimit,jdbcType=INTEGER}, 
-      #{creditTotalLimit,jdbcType=INTEGER}, #{billDay,jdbcType=CHAR}, #{payDay,jdbcType=CHAR}, 
-      #{billCycle,jdbcType=TINYINT}, #{remindDay,jdbcType=TINYINT}, #{expireDay,jdbcType=CHAR}, 
-      #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT})
+      #{creditTotalLimit,jdbcType=INTEGER}, #{billDay,jdbcType=INTEGER}, #{payDay,jdbcType=INTEGER}, 
+      #{billCycle,jdbcType=INTEGER}, #{remindDay,jdbcType=INTEGER}, #{expireDay,jdbcType=CHAR}, 
+      #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR}, #{type,jdbcType=TINYINT}, #{isDelete,jdbcType=TINYINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.CreditCard" >
     insert into credit_card
@@ -182,6 +185,9 @@
       <if test="utime != null" >
         utime,
       </if>
+      <if test="type != null" >
+        type,
+      </if>
       <if test="isDelete != null" >
         is_delete,
       </if>
@@ -218,16 +224,16 @@
         #{creditTotalLimit,jdbcType=INTEGER},
       </if>
       <if test="billDay != null" >
-        #{billDay,jdbcType=CHAR},
+        #{billDay,jdbcType=INTEGER},
       </if>
       <if test="payDay != null" >
-        #{payDay,jdbcType=CHAR},
+        #{payDay,jdbcType=INTEGER},
       </if>
       <if test="billCycle != null" >
-        #{billCycle,jdbcType=TINYINT},
+        #{billCycle,jdbcType=INTEGER},
       </if>
       <if test="remindDay != null" >
-        #{remindDay,jdbcType=TINYINT},
+        #{remindDay,jdbcType=INTEGER},
       </if>
       <if test="expireDay != null" >
         #{expireDay,jdbcType=CHAR},
@@ -237,6 +243,9 @@
       </if>
       <if test="utime != null" >
         #{utime,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="isDelete != null" >
         #{isDelete,jdbcType=TINYINT},
@@ -283,16 +292,16 @@
         credit_total_limit = #{record.creditTotalLimit,jdbcType=INTEGER},
       </if>
       <if test="record.billDay != null" >
-        bill_day = #{record.billDay,jdbcType=CHAR},
+        bill_day = #{record.billDay,jdbcType=INTEGER},
       </if>
       <if test="record.payDay != null" >
-        pay_day = #{record.payDay,jdbcType=CHAR},
+        pay_day = #{record.payDay,jdbcType=INTEGER},
       </if>
       <if test="record.billCycle != null" >
-        bill_cycle = #{record.billCycle,jdbcType=TINYINT},
+        bill_cycle = #{record.billCycle,jdbcType=INTEGER},
       </if>
       <if test="record.remindDay != null" >
-        remind_day = #{record.remindDay,jdbcType=TINYINT},
+        remind_day = #{record.remindDay,jdbcType=INTEGER},
       </if>
       <if test="record.expireDay != null" >
         expire_day = #{record.expireDay,jdbcType=CHAR},
@@ -302,6 +311,9 @@
       </if>
       <if test="record.utime != null" >
         utime = #{record.utime,jdbcType=CHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
       </if>
       <if test="record.isDelete != null" >
         is_delete = #{record.isDelete,jdbcType=TINYINT},
@@ -323,13 +335,14 @@
       credit_temp_limit = #{record.creditTempLimit,jdbcType=INTEGER},
       credit_other_limit = #{record.creditOtherLimit,jdbcType=INTEGER},
       credit_total_limit = #{record.creditTotalLimit,jdbcType=INTEGER},
-      bill_day = #{record.billDay,jdbcType=CHAR},
-      pay_day = #{record.payDay,jdbcType=CHAR},
-      bill_cycle = #{record.billCycle,jdbcType=TINYINT},
-      remind_day = #{record.remindDay,jdbcType=TINYINT},
+      bill_day = #{record.billDay,jdbcType=INTEGER},
+      pay_day = #{record.payDay,jdbcType=INTEGER},
+      bill_cycle = #{record.billCycle,jdbcType=INTEGER},
+      remind_day = #{record.remindDay,jdbcType=INTEGER},
       expire_day = #{record.expireDay,jdbcType=CHAR},
       ctime = #{record.ctime,jdbcType=CHAR},
       utime = #{record.utime,jdbcType=CHAR},
+      type = #{record.type,jdbcType=TINYINT},
       is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -366,16 +379,16 @@
         credit_total_limit = #{creditTotalLimit,jdbcType=INTEGER},
       </if>
       <if test="billDay != null" >
-        bill_day = #{billDay,jdbcType=CHAR},
+        bill_day = #{billDay,jdbcType=INTEGER},
       </if>
       <if test="payDay != null" >
-        pay_day = #{payDay,jdbcType=CHAR},
+        pay_day = #{payDay,jdbcType=INTEGER},
       </if>
       <if test="billCycle != null" >
-        bill_cycle = #{billCycle,jdbcType=TINYINT},
+        bill_cycle = #{billCycle,jdbcType=INTEGER},
       </if>
       <if test="remindDay != null" >
-        remind_day = #{remindDay,jdbcType=TINYINT},
+        remind_day = #{remindDay,jdbcType=INTEGER},
       </if>
       <if test="expireDay != null" >
         expire_day = #{expireDay,jdbcType=CHAR},
@@ -385,6 +398,9 @@
       </if>
       <if test="utime != null" >
         utime = #{utime,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
       </if>
       <if test="isDelete != null" >
         is_delete = #{isDelete,jdbcType=TINYINT},
@@ -403,13 +419,14 @@
       credit_temp_limit = #{creditTempLimit,jdbcType=INTEGER},
       credit_other_limit = #{creditOtherLimit,jdbcType=INTEGER},
       credit_total_limit = #{creditTotalLimit,jdbcType=INTEGER},
-      bill_day = #{billDay,jdbcType=CHAR},
-      pay_day = #{payDay,jdbcType=CHAR},
-      bill_cycle = #{billCycle,jdbcType=TINYINT},
-      remind_day = #{remindDay,jdbcType=TINYINT},
+      bill_day = #{billDay,jdbcType=INTEGER},
+      pay_day = #{payDay,jdbcType=INTEGER},
+      bill_cycle = #{billCycle,jdbcType=INTEGER},
+      remind_day = #{remindDay,jdbcType=INTEGER},
       expire_day = #{expireDay,jdbcType=CHAR},
       ctime = #{ctime,jdbcType=CHAR},
       utime = #{utime,jdbcType=CHAR},
+      type = #{type,jdbcType=TINYINT},
       is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -435,6 +452,24 @@
       AND bank_id = #{bankId}
     </if>
     ORDER BY credit_limit DESC
+  </select>
+
+  <select id="selectAdviceCredit" resultMap="BaseResultMap">
+    SELECT
+    a.id,a.card_no,a.card_name,a.card_level,a.bill_day,a.pay_day,
+    IF (
+    (a.pay_day - #{today}) <![CDATA[<=]]> 0,
+    a.pay_day + 30 - #{today},
+    a.pay_day - #{today}
+    )+30 AS bill_cycle
+    FROM
+    credit_card a
+    WHERE
+      user_id = #{userId}
+    AND is_delete = 1
+    AND `type` = 1
+    ORDER BY
+    bill_cycle DESC
   </select>
 
 </mapper>

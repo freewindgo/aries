@@ -88,4 +88,14 @@ public class CreditController {
         }
     }
 
+
+    @GetMapping("/creditAdvice")
+    public Response creditAdvice(@RequestParam Long userId){
+        try {
+            return creditClient.creditAdvice(userId);
+        } catch (Exception e) {
+            log.error("CreditController.creditAdvice error, param is {}, error is {}", userId.toString(), e);
+            return Response.error();
+        }
+    }
 }
