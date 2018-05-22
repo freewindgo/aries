@@ -7,10 +7,8 @@ package com.cf.aries.common.enums;
  */
 public enum CreditEnum implements BaseEnum {
 
-    BANK((byte)1,"银行卡"),
-    CONSUME_CREDIT((byte)2,"消费信贷"),
-
-    ;
+    BANK((byte) 1, "银行卡"),
+    CONSUME_CREDIT((byte) 2, "消费信贷"),;
 
     private Byte code;
 

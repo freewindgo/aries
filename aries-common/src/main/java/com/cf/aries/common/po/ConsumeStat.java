@@ -6,12 +6,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(value={"isDelete"})
-public class ConsumeStat extends PageInfo{
+@JsonIgnoreProperties(value = {"isDelete"})
+public class ConsumeStat extends PageInfo implements Serializable {
     private Long id;
 
     private Long userId;

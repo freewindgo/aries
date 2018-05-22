@@ -7,10 +7,11 @@ package com.cf.aries.common.enums;
  */
 public enum CommonEnum implements BaseEnum {
 
-    NORMAL((byte)1,"未删除"),
-    DELETED((byte)2,"已删除"),
+    NORMAL((byte) 1, "未删除"),
+    DELETED((byte) 2, "已删除"),
 
-    ;
+    YES((byte) 1, "是"),
+    NO((byte) 2, "否"),;
 
     private Byte code;
 
