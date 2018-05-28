@@ -13,6 +13,7 @@ import lombok.Getter;
 public enum UserMessage implements ResponseMessageInterface{
     NO_USER(502,"未查询到有效信息"),
     PASSWORD_INVALID(502, "密码错误"),
+    GET_OPENID_FAILED(502, "微信服务调用失败"),
     ;
 
     private int code;

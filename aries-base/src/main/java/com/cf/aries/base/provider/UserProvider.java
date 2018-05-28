@@ -38,8 +38,19 @@ public class UserProvider {
         }
     }
 
+    /**
+     * 1、新用户登陆时存储用户信息  db is null，id is null
+     * 2、用户缓存清空时获取缓存    db is not null，id is null
+     * 3、更新用户信息             id is not null
+     *
+     * @param userInfo
+     * @return
+     */
     @PostMapping("/saveUserInfo")
     public Response saveUserInfo(@RequestBody UserInfo userInfo){
+        if(EmptyUtils.isEmpty(userInfo.getCode())){
+            return Response.error(ResponseMessage.PARAM_ERROR);
+        }
         try {
             return userBusiness.saveUserInfo(userInfo);
         } catch (Exception e) {

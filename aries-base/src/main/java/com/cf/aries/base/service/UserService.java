@@ -18,4 +18,6 @@ public interface UserService {
 
     int updateUserInfo(UserInfo userInfo);
 
+    UserInfo getUserInfoByOpenId(String openId);
+
 }

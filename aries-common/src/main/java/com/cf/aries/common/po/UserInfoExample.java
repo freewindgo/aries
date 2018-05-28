@@ -174,52 +174,62 @@ public class UserInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdEqualTo(Long value) {
+        public Criteria andOpenIdEqualTo(String value) {
             addCriterion("open_id =", value, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdNotEqualTo(Long value) {
+        public Criteria andOpenIdNotEqualTo(String value) {
             addCriterion("open_id <>", value, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdGreaterThan(Long value) {
+        public Criteria andOpenIdGreaterThan(String value) {
             addCriterion("open_id >", value, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andOpenIdGreaterThanOrEqualTo(String value) {
             addCriterion("open_id >=", value, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdLessThan(Long value) {
+        public Criteria andOpenIdLessThan(String value) {
             addCriterion("open_id <", value, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdLessThanOrEqualTo(Long value) {
+        public Criteria andOpenIdLessThanOrEqualTo(String value) {
             addCriterion("open_id <=", value, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdIn(List<Long> values) {
+        public Criteria andOpenIdLike(String value) {
+            addCriterion("open_id like", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdNotLike(String value) {
+            addCriterion("open_id not like", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdIn(List<String> values) {
             addCriterion("open_id in", values, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdNotIn(List<Long> values) {
+        public Criteria andOpenIdNotIn(List<String> values) {
             addCriterion("open_id not in", values, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdBetween(Long value1, Long value2) {
+        public Criteria andOpenIdBetween(String value1, String value2) {
             addCriterion("open_id between", value1, value2, "openId");
             return (Criteria) this;
         }
 
-        public Criteria andOpenIdNotBetween(Long value1, Long value2) {
+        public Criteria andOpenIdNotBetween(String value1, String value2) {
             addCriterion("open_id not between", value1, value2, "openId");
             return (Criteria) this;
         }
@@ -691,6 +701,146 @@ public class UserInfoExample {
 
         public Criteria andPointNotBetween(Integer value1, Integer value2) {
             addCriterion("point not between", value1, value2, "point");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIsNull() {
+            addCriterion("device is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIsNotNull() {
+            addCriterion("device is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceEqualTo(String value) {
+            addCriterion("device =", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceNotEqualTo(String value) {
+            addCriterion("device <>", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceGreaterThan(String value) {
+            addCriterion("device >", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceGreaterThanOrEqualTo(String value) {
+            addCriterion("device >=", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceLessThan(String value) {
+            addCriterion("device <", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceLessThanOrEqualTo(String value) {
+            addCriterion("device <=", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceLike(String value) {
+            addCriterion("device like", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceNotLike(String value) {
+            addCriterion("device not like", value, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIn(List<String> values) {
+            addCriterion("device in", values, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceNotIn(List<String> values) {
+            addCriterion("device not in", values, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceBetween(String value1, String value2) {
+            addCriterion("device between", value1, value2, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceNotBetween(String value1, String value2) {
+            addCriterion("device not between", value1, value2, "device");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemIsNull() {
+            addCriterion("system is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemIsNotNull() {
+            addCriterion("system is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemEqualTo(String value) {
+            addCriterion("system =", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemNotEqualTo(String value) {
+            addCriterion("system <>", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemGreaterThan(String value) {
+            addCriterion("system >", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemGreaterThanOrEqualTo(String value) {
+            addCriterion("system >=", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemLessThan(String value) {
+            addCriterion("system <", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemLessThanOrEqualTo(String value) {
+            addCriterion("system <=", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemLike(String value) {
+            addCriterion("system like", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemNotLike(String value) {
+            addCriterion("system not like", value, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemIn(List<String> values) {
+            addCriterion("system in", values, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemNotIn(List<String> values) {
+            addCriterion("system not in", values, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemBetween(String value1, String value2) {
+            addCriterion("system between", value1, value2, "system");
+            return (Criteria) this;
+        }
+
+        public Criteria andSystemNotBetween(String value1, String value2) {
+            addCriterion("system not between", value1, value2, "system");
             return (Criteria) this;
         }
 

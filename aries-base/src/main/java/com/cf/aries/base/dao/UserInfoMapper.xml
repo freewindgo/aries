@@ -11,6 +11,8 @@
     <result column="country" property="country" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="point" property="point" jdbcType="INTEGER" />
+    <result column="device" property="device" jdbcType="VARCHAR" />
+    <result column="system" property="system" jdbcType="VARCHAR" />
     <result column="image" property="image" jdbcType="VARCHAR" />
     <result column="is_private" property="isPrivate" jdbcType="TINYINT" />
     <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
@@ -76,8 +78,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, open_id, sex, name, city, province, country, password, point, image, is_private, 
-    is_delete, ctime, utime
+    id, open_id, sex, name, city, province, country, password, point, device, system, 
+    image, is_private, is_delete, ctime, utime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cf.aries.common.po.UserInfoExample" >
     select
@@ -113,13 +115,15 @@
     insert into user_info (id, open_id, sex, 
       name, city, province, 
       country, password, point, 
-      image, is_private, is_delete, 
-      ctime, utime)
+      device, system, image, 
+      is_private, is_delete, ctime, 
+      utime)
     values (#{id,jdbcType=BIGINT}, #{openId,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, 
       #{name,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
       #{country,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{point,jdbcType=INTEGER}, 
-      #{image,jdbcType=VARCHAR}, #{isPrivate,jdbcType=TINYINT}, #{isDelete,jdbcType=TINYINT}, 
-      #{ctime,jdbcType=CHAR}, #{utime,jdbcType=CHAR})
+      #{device,jdbcType=VARCHAR}, #{system,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{isPrivate,jdbcType=TINYINT}, #{isDelete,jdbcType=TINYINT}, #{ctime,jdbcType=CHAR}, 
+      #{utime,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.UserInfo" >
     insert into user_info
@@ -150,6 +154,12 @@
       </if>
       <if test="point != null" >
         point,
+      </if>
+      <if test="device != null" >
+        device,
+      </if>
+      <if test="system != null" >
+        system,
       </if>
       <if test="image != null" >
         image,
@@ -194,6 +204,12 @@
       </if>
       <if test="point != null" >
         #{point,jdbcType=INTEGER},
+      </if>
+      <if test="device != null" >
+        #{device,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null" >
+        #{system,jdbcType=VARCHAR},
       </if>
       <if test="image != null" >
         #{image,jdbcType=VARCHAR},
@@ -248,6 +264,12 @@
       <if test="record.point != null" >
         point = #{record.point,jdbcType=INTEGER},
       </if>
+      <if test="record.device != null" >
+        device = #{record.device,jdbcType=VARCHAR},
+      </if>
+      <if test="record.system != null" >
+        system = #{record.system,jdbcType=VARCHAR},
+      </if>
       <if test="record.image != null" >
         image = #{record.image,jdbcType=VARCHAR},
       </if>
@@ -279,6 +301,8 @@
       country = #{record.country,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       point = #{record.point,jdbcType=INTEGER},
+      device = #{record.device,jdbcType=VARCHAR},
+      system = #{record.system,jdbcType=VARCHAR},
       image = #{record.image,jdbcType=VARCHAR},
       is_private = #{record.isPrivate,jdbcType=TINYINT},
       is_delete = #{record.isDelete,jdbcType=TINYINT},
@@ -315,6 +339,12 @@
       <if test="point != null" >
         point = #{point,jdbcType=INTEGER},
       </if>
+      <if test="device != null" >
+        device = #{device,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null" >
+        system = #{system,jdbcType=VARCHAR},
+      </if>
       <if test="image != null" >
         image = #{image,jdbcType=VARCHAR},
       </if>
@@ -343,6 +373,8 @@
       country = #{country,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       point = #{point,jdbcType=INTEGER},
+      device = #{device,jdbcType=VARCHAR},
+      system = #{system,jdbcType=VARCHAR},
       image = #{image,jdbcType=VARCHAR},
       is_private = #{isPrivate,jdbcType=TINYINT},
       is_delete = #{isDelete,jdbcType=TINYINT},
