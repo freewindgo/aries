@@ -103,10 +103,12 @@ public class UserBusinessImpl implements UserBusiness {
 
         log.info("UserBusinessImpl.getOpenIdFromWx, code is {}, result is {}", code, resultStr);
         Map<String, Object> resultMap = JsonUtils.parseMap(resultStr);
-        if(EmptyUtils.isEmpty(resultMap) || EmptyUtils.isEmpty(resultMap.get("openId"))){
+        if(EmptyUtils.isEmpty(resultMap) || EmptyUtils.isEmpty(resultMap.get("openid"))){
             return null;
         }
 
-        return resultMap.get("openId").toString();
+        return resultMap.get("openid").toString();
     }
+
+
 }
