@@ -34,7 +34,7 @@ public interface UserClient {
      * @return
      */
     @PostMapping("/user/saveUserInfo")
-    Response saveUserInfo(@RequestBody UserInfo userInfo);
+    Response<UserInfo> saveUserInfo(@RequestBody UserInfo userInfo);
 
     /**
      * 密码校验

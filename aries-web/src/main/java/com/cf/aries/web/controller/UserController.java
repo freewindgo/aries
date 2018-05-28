@@ -45,7 +45,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/saveUserInfo")
-    public Response saveUserInfo(@RequestBody UserInfo userInfo) {
+    public Response<UserInfo> saveUserInfo(@RequestBody UserInfo userInfo) {
         try {
             return userClient.saveUserInfo(userInfo);
         } catch (Exception e) {
