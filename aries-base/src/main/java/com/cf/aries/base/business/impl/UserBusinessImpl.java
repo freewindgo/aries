@@ -56,7 +56,10 @@ public class UserBusinessImpl implements UserBusiness {
             userInfo.setUtime(userInfo.getCtime());
             userInfo.setIsDelete(CommonEnum.NORMAL.getCode());
             userInfo.setIsPrivate(CommonEnum.NO.getCode());
-            userService.insertUserInfo(userInfo);
+
+            //将记录得id进行赋值并返回
+            Long id = userService.insertUserInfo(userInfo);
+            userInfo.setId(id);
 
         } else {
             userInfo.setUtime(DateUtils.formatDate(DateUtils.FORMAT_DEFAULT, new Date()));

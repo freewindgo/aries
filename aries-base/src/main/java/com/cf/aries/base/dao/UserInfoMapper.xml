@@ -125,7 +125,7 @@
       #{isPrivate,jdbcType=TINYINT}, #{isDelete,jdbcType=TINYINT}, #{ctime,jdbcType=CHAR}, 
       #{utime,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cf.aries.common.po.UserInfo" >
+  <insert id="insertSelective" parameterType="com.cf.aries.common.po.UserInfo" useGeneratedKeys="true" keyProperty="id">
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
