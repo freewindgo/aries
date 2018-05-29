@@ -11,7 +11,7 @@ import lombok.Getter;
 
 @Getter
 public enum WoolMessage implements ResponseMessageInterface{
-    NO_WOOL(502,"未查询到有效信息"),
+    NO_WOOL(502,"未查询到有效记录"),
     ;
 
     private int code;

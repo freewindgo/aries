@@ -11,7 +11,7 @@ import lombok.Getter;
 
 @Getter
 public enum ConsumeMessage implements ResponseMessageInterface{
-    NO_INFO(502,"未查询到有效信息"),
+    NO_INFO(502,"未查询到有效数据"),
     ;
 
     private int code;

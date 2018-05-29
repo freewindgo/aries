@@ -36,4 +36,6 @@ public interface ConsumeService {
     List<ConsumeStat> getConsumeStats(ConsumeStat consumeStat);
 
     List<ConsumeStat> getConsumeStatsForm(Long userId, String startMonth, String endMonth);
+
+    int countByUserId(Long userId);
 }

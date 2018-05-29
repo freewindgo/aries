@@ -69,13 +69,13 @@ public class CreditProvider {
         }
     }
 
-    @GetMapping("/creditAdvice")
-    public Response creditAdvice(@RequestParam Long userId){
+    @GetMapping("/summaryInfo")
+    public Response summaryInfo(@RequestParam Long userId){
         if(EmptyUtils.isEmpty(userId)){
             return Response.error(ResponseMessage.PARAM_ERROR);
         }
         try {
-            return creditBusiness.getCreditAdvice(userId);
+            return creditBusiness.getSummaryInfo(userId);
         } catch (Exception e) {
             log.error("creditAdvice error, error:{}",e);
             return Response.error();

@@ -2,6 +2,7 @@ package com.cf.aries.base.business.impl;
 
 import com.cf.aries.base.business.CreditBusiness;
 import com.cf.aries.base.dbrouter.annotation.Split;
+import com.cf.aries.base.service.ConsumeService;
 import com.cf.aries.base.service.CreditService;
 import com.cf.aries.common.enums.CommonEnum;
 import com.cf.aries.common.message.CreditMessage;
@@ -9,6 +10,7 @@ import com.cf.aries.common.po.CreditCard;
 import com.cf.aries.common.util.DateUtils;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
+import com.cf.aries.common.vo.SummaryInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,9 @@ public class CreditBusinessImpl implements CreditBusiness {
 
     @Autowired
     private CreditService creditService;
+
+    @Autowired
+    private ConsumeService consumeService;
 
     @Transactional
     @Override
@@ -79,8 +84,20 @@ public class CreditBusinessImpl implements CreditBusiness {
     }
 
     @Override
-    public Response getCreditAdvice(Long userId) {
+    public Response getSummaryInfo(Long userId) {
         CreditCard creditCard = creditService.getCreditAdvice(userId);
-        return Response.success(creditCard);
+        if(creditCard == null){
+            return Response.success();
+        }
+        int totalCard = creditService.countByUserId(userId);
+        int totalRecord = creditService.countByUserId(userId);
+
+        SummaryInfo summaryInfo = new SummaryInfo();
+        summaryInfo.setAdviceCard(creditCard.getCardName());
+        summaryInfo.setAdviceDay(creditCard.getBillCycle());
+        summaryInfo.setCardTotal(totalCard);
+        summaryInfo.setRecordTotal(totalRecord);
+
+        return Response.success(summaryInfo);
     }
 }

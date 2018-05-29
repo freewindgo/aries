@@ -11,7 +11,7 @@ import lombok.Getter;
 
 @Getter
 public enum CreditMessage implements ResponseMessageInterface{
-    NO_CARD(502,"未查询到有效信息"),
+    NO_CARD(502,"未查询到有效卡片"),
     ;
 
     private int code;

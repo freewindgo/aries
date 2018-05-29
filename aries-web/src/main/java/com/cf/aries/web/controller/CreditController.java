@@ -2,6 +2,7 @@ package com.cf.aries.web.controller;
 
 import com.cf.aries.common.po.CreditCard;
 import com.cf.aries.common.util.Response;
+import com.cf.aries.common.vo.SummaryInfo;
 import com.cf.aries.web.consumer.CreditClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,11 +89,15 @@ public class CreditController {
         }
     }
 
-
-    @GetMapping("/creditAdvice")
-    public Response<CreditCard> creditAdvice(@RequestParam Long userId){
+    /**
+     * 获取纵览数据
+     * @param userId
+     * @return
+     */
+    @GetMapping("/summaryInfo")
+    public Response<SummaryInfo> summaryInfo(@RequestParam Long userId){
         try {
-            return creditClient.creditAdvice(userId);
+            return creditClient.summaryInfo(userId);
         } catch (Exception e) {
             log.error("CreditController.creditAdvice error, param is {}, error is {}", userId.toString(), e);
             return Response.error();

@@ -111,4 +111,11 @@ public class ConsumeServiceImpl implements ConsumeService {
                 .andIsDeleteEqualTo(CommonEnum.NORMAL.getCode());
         return consumeStatMapper.selectByExample(consumeStatExample);
     }
+
+    @Override
+    public int countByUserId(Long userId) {
+        ConsumeInfoExample consumeInfoExample = new ConsumeInfoExample();
+        consumeInfoExample.createCriteria().andUserIdEqualTo(userId);
+        return consumeInfoMapper.countByExample(consumeInfoExample);
+    }
 }

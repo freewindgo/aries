@@ -23,4 +23,6 @@ public interface CreditService {
     int realDelete(Integer days);
 
     CreditCard getCreditAdvice(Long userId);
+
+    int countByUserId(Long userId);
 }

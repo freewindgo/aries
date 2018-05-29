@@ -67,4 +67,11 @@ public class CreditServiceImpl implements CreditService {
 
         return adviceCreditList.get(0);
     }
+
+    @Override
+    public int countByUserId(Long userId) {
+        CreditCardExample creditCardExample = new CreditCardExample();
+        creditCardExample.createCriteria().andUserIdEqualTo(userId);
+        return creditCardMapper.countByExample(creditCardExample);
+    }
 }

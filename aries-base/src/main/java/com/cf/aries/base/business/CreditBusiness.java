@@ -19,5 +19,5 @@ public interface CreditBusiness {
 
     Response deleteCreditCard(Long cardId);
 
-    Response getCreditAdvice(Long userId);
+    Response getSummaryInfo(Long userId);
 }

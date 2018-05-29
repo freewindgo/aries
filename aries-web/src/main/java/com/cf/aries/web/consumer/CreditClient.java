@@ -2,6 +2,7 @@ package com.cf.aries.web.consumer;
 
 import com.cf.aries.common.po.CreditCard;
 import com.cf.aries.common.util.Response;
+import com.cf.aries.common.vo.SummaryInfo;
 import com.cf.aries.web.consumer.fallback.CreditClientFallback;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,11 +59,11 @@ public interface CreditClient {
     Response deleteCreditCard(@RequestParam("id") Long id);
 
     /**
-     * 获取信用卡建议
+     * 获取总览中各项数据
      * @param userId
      * @return
      */
-    @GetMapping("/credit/creditAdvice")
-    Response<CreditCard> creditAdvice(@RequestParam("userId") Long userId);
+    @GetMapping("/credit/summaryInfo")
+    Response<SummaryInfo> summaryInfo(@RequestParam("userId") Long userId);
 
 }
