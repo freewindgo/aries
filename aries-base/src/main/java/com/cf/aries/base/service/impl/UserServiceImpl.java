@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int insertUserInfo(UserInfo userInfo) {
+    public long insertUserInfo(UserInfo userInfo) {
         return userInfoMapper.insertSelective(userInfo);
     }
 
