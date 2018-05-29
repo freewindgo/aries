@@ -2,6 +2,7 @@ package com.cf.aries.web.consumer.fallback;
 
 import com.cf.aries.common.po.CreditCard;
 import com.cf.aries.common.util.Response;
+import com.cf.aries.common.vo.SummaryInfo;
 import com.cf.aries.web.consumer.CreditClient;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
@@ -47,8 +48,8 @@ public class CreditClientFallback implements FallbackFactory<CreditClient> {
             }
 
             @Override
-            public Response<CreditCard> creditAdvice(Long userId) {
-                log.error("RPC FALLBACK CreditClient.creditAdvice, param is: {},error is :{}", userId.toString(), cause);
+            public Response<SummaryInfo> summaryInfo(Long userId) {
+                log.error("RPC FALLBACK CreditClient.summaryInfo, param is: {},error is :{}", userId.toString(), cause);
                 return Response.error();
             }
         };
