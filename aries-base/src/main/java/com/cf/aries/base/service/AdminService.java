@@ -12,7 +12,7 @@ import java.util.List;
  * @author 于文硕 yuwenshuo@passiontec.cn
  * @since 2018/5/11 13:49
  */
-@Service
+
 public interface AdminService {
 
     List<AdminBank> getAllBank();
