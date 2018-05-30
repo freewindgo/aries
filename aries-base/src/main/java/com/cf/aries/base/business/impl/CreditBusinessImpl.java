@@ -90,7 +90,7 @@ public class CreditBusinessImpl implements CreditBusiness {
             return Response.success();
         }
         int totalCard = creditService.countByUserId(userId);
-        int totalRecord = creditService.countByUserId(userId);
+        int totalRecord = consumeService.countByUserId(userId);
 
         SummaryInfo summaryInfo = new SummaryInfo();
         summaryInfo.setAdviceCard(creditCard.getCardName());
