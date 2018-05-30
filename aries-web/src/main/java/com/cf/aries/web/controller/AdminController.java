@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * AdminController
  *
@@ -30,7 +32,7 @@ public class AdminController {
      * @return
      */
     @GetMapping("/getAllBank")
-    public Response<AdminBank> getAllBank() {
+    public Response<List<AdminBank>> getAllBank() {
         try {
             return adminClient.getAllBank();
         } catch (Exception e) {

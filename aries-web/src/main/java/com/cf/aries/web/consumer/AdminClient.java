@@ -6,6 +6,8 @@ import com.cf.aries.web.consumer.fallback.AdminClientFallback;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 /**
  * AdminClient
  *
@@ -21,7 +23,7 @@ public interface AdminClient {
      * @return
      */
     @GetMapping("/admin/getAllBank")
-    Response<AdminBank> getAllBank();
+    Response<List<AdminBank>> getAllBank();
 
 
 }

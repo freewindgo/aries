@@ -9,6 +9,8 @@ import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * AdminClientFallback
  *
@@ -23,7 +25,7 @@ public class AdminClientFallback implements FallbackFactory<AdminClient> {
     public AdminClient create(Throwable cause) {
         return new AdminClient() {
             @Override
-            public Response<AdminBank> getAllBank() {
+            public Response<List<AdminBank>> getAllBank() {
                 log.error("RPC FALLBACK AdminClient.getAllBank,error is :{}", cause);
                 return Response.error();
             }
