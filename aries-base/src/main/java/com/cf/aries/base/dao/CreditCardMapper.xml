@@ -443,7 +443,7 @@
       AND card_name like concat('%', #{cardName} ,'%')
     </if>
     <if test="cardLevel != null" >
-      AND  card_level = #{cardLevel}
+      AND card_level = #{cardLevel}
     </if>
     <if test="creditLimit != null" >
       AND credit_limit >= #{creditLimit}
@@ -451,7 +451,14 @@
     <if test="bankId != null" >
       AND bank_id = #{bankId}
     </if>
+    <if test="searchValue != null" >
+      AND card_name like concat('%', #{cardName} ,'%')
+    </if>
     ORDER BY credit_limit DESC
+
+    <if test="start != null and size != null" >
+      LIMIT #{start},#{size}
+    </if>
   </select>
 
   <select id="selectAdviceCredit" resultMap="BaseResultMap">

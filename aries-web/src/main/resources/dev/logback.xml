@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
-    <property name="APP_NAME" value="aries-base" />
+    <property name="APP_NAME" value="aries-web" />
     <property name="LOG_HOME" value="./${log.dir:-logs}/" />
     <property name="ENCODER_PATTERN"
               value="%d{yyyy-MM-dd  HH:mm:ss.SSS} %-5level [%10.10thread] [%X{X-B3-TraceId}] %logger{20} - %msg%n" />

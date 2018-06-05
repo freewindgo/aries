@@ -13,7 +13,18 @@ import lombok.Setter;
 @Setter
 public class PageInfo {
 
+    /**
+     * 页码
+     */
     Integer start;
 
+    /**
+     * 每页显示数据
+     */
     Integer size;
+
+    /**
+     * 查询值
+     */
+    String searchValue;
 }

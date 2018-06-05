@@ -13,7 +13,7 @@ import java.io.Serializable;
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(value = {"isDelete"})
-public class CreditCard implements Serializable {
+public class CreditCard extends PageInfo implements Serializable{
     private Long id;
 
     private Long userId;

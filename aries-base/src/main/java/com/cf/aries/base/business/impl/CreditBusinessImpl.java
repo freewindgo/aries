@@ -7,6 +7,7 @@ import com.cf.aries.base.service.CreditService;
 import com.cf.aries.common.enums.CommonEnum;
 import com.cf.aries.common.message.CreditMessage;
 import com.cf.aries.common.po.CreditCard;
+import com.cf.aries.common.util.CommonUtils;
 import com.cf.aries.common.util.DateUtils;
 import com.cf.aries.common.util.EmptyUtils;
 import com.cf.aries.common.util.Response;
@@ -65,6 +66,8 @@ public class CreditBusinessImpl implements CreditBusiness {
 
     @Override
     public Response getCreditCards(CreditCard creditCard) {
+        creditCard.setStart(CommonUtils.getPageStart(creditCard.getStart(),creditCard.getSize()));
+
         List<CreditCard> creditCardList = creditService.getCreditCards(creditCard);
         if (EmptyUtils.isEmpty(creditCardList)) {
             return Response.error(CreditMessage.NO_CARD);
