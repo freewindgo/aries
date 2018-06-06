@@ -451,7 +451,7 @@
     <if test="bankId != null" >
       AND bank_id = #{bankId}
     </if>
-    <if test="searchValue != null" >
+    <if test="searchValue != null || searchValue != '' " >
       AND card_name like concat('%', #{cardName} ,'%')
     </if>
     ORDER BY credit_limit DESC
