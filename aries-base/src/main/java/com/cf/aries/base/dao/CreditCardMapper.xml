@@ -134,7 +134,7 @@
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.CreditCard" >
     insert into credit_card
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+      <if test="id != null and id != ''" >
         id,
       </if>
       <if test="userId != null" >
@@ -451,8 +451,8 @@
     <if test="bankId != null" >
       AND bank_id = #{bankId}
     </if>
-    <if test="searchValue != null || searchValue != '' " >
-      AND card_name like concat('%', #{cardName} ,'%')
+    <if test="searchValue != null and searchValue != '' " >
+      AND card_name like concat('%', #{searchValue} ,'%')
     </if>
     ORDER BY credit_limit DESC
 

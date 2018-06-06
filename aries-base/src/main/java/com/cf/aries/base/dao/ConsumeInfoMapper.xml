@@ -125,7 +125,7 @@
   <insert id="insertSelective" parameterType="com.cf.aries.common.po.ConsumeInfo" >
     insert into consume_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+      <if test="id != null and id != ''" >
         id,
       </if>
       <if test="cardId != null" >
