@@ -465,10 +465,10 @@
     SELECT
     a.id,a.card_no,a.card_name,a.card_level,a.bill_day,a.pay_day,
     IF (
-    (a.pay_day - #{today}) <![CDATA[<=]]> 0,
-    a.pay_day + 30 - #{today},
-    a.pay_day - #{today}
-    )+30 AS bill_cycle
+    (a.bill_day - #{today}) >= 0,
+    a.bill_cycle + a.bill_day - #{today} - 30,
+    a.bill_cycle + a.bill_day - #{today}
+    ) AS bill_cycle
     FROM
     credit_card a
     WHERE
