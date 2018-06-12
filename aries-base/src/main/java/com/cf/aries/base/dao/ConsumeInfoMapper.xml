@@ -386,6 +386,9 @@
     <if test="month != null" >
       AND `month` = #{month}
     </if>
+    <if test="searchValue != null and searchValue != '' " >
+      AND `month`  like concat('%', #{searchValue} ,'%')
+    </if>
     ORDER BY pay_time DESC
 
     <if test="start != null and size != null" >
@@ -412,6 +415,9 @@
       AND `type` = #{type}
     </if>
     <if test="month != null" >
+      AND `month` = #{month}
+    </if>
+    <if test="searchValue != null" >
       AND `month` = #{month}
     </if>
   </select>
