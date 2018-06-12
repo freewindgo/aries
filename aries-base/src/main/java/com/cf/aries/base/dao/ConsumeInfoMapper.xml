@@ -417,8 +417,8 @@
     <if test="month != null" >
       AND `month` = #{month}
     </if>
-    <if test="searchValue != null" >
-      AND `month` = #{month}
+    <if test="searchValue != null and searchValue != '' " >
+      AND `month`  like concat('%', #{searchValue} ,'%')
     </if>
   </select>
 
