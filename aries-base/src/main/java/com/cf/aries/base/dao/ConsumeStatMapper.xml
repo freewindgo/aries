@@ -273,6 +273,9 @@
     <if test="sheep != null" >
       AND sheep >= #{sheep}
     </if>
+    <if test="searchValue != null and searchValue != '' " >
+      AND `month`  like concat('%', #{searchValue} ,'%')
+    </if>
     ORDER BY `month` DESC
   </select>
 </mapper>
