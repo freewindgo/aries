@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
  *
  * 在使用springboot的时候,需要在启动类使用 @ServletComponentScan注解
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/14 15:21
  */
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * CreditProvider
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/15 15:04
  */
 @Slf4j

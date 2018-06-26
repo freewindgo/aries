@@ -7,7 +7,7 @@ import java.security.MessageDigest;
  *
  * MD5加密
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/15 11:31
  */
 public class MD5Utils {

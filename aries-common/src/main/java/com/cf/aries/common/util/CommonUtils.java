@@ -3,7 +3,7 @@ package com.cf.aries.common.util;
 /**
  * CommonUtils
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/6/5 18:08
  */
 public class CommonUtils {

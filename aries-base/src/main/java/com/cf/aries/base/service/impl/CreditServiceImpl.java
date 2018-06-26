@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * CreditServiceImpl
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/15 14:14
  */
 @Service

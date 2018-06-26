@@ -14,7 +14,7 @@ import java.util.Stack;
 /**
  * SplitInterceptor
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/11 17:35
  */
 @Slf4j

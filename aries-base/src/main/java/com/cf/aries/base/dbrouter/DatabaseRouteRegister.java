@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 /**
  * DatabaseRouteRegister
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/11 17:46
  */
 public class DatabaseRouteRegister {

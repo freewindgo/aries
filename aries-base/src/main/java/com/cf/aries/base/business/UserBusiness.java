@@ -6,7 +6,7 @@ import com.cf.aries.common.util.Response;
 /**
  * UserBusiness
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/11 13:49
  */
 

@@ -8,7 +8,7 @@ import lombok.ToString;
 /**
  * SummaryInfo
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/29 10:18
  */
 @Getter

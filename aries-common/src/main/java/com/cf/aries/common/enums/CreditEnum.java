@@ -1,7 +1,7 @@
 package com.cf.aries.common.enums;
 
 /**
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @ClassName CreditEnum
  * @create 2018/3/14 10:18
  */

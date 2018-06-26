@@ -12,7 +12,7 @@ import java.util.Stack;
 /**
  * TransactionalInterceptor
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/11 17:44
  */
 @Aspect

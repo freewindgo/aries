@@ -5,7 +5,7 @@ import com.cf.aries.common.util.Response;
 /**
  * CronBusiness
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/16 15:00
  */
 public interface CronBusiness {

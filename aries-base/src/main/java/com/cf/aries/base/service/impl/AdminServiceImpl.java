@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * AdminServiceImpl
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/29 16:36
  */
 @Service

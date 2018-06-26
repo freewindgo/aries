@@ -9,7 +9,7 @@ import java.util.Date;
  * <p>
  * JODA时间工具类
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/15 10:25
  */
 public class DateUtils {

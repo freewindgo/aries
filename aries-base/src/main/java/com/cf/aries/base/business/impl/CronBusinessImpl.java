@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * CronBusinessImpl
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/16 15:01
  */
 @Slf4j

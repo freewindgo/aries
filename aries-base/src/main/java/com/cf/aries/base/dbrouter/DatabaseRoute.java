@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * DatabaseRoute
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/11 17:39
  */
 public class DatabaseRoute extends AbstractRoutingDataSource {

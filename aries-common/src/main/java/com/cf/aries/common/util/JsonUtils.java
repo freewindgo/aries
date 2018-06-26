@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * JsonUtils
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/25 18:22
  */
 public class JsonUtils {

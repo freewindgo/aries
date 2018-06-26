@@ -1,5 +1,4 @@
 #!/bin/bash
-# @Author: guofengzhao@passiontec.cn
 # @Date: 2015/06/11
 # Usage: sh run.sh start|stop
 
@@ -41,7 +40,7 @@ else
     service_type="java_only"
     LIB_JARS=`ls $LIB_DIR|grep .jar|awk '{print "'$LIB_DIR'/"$0}'|tr "\n" ":"`
     CLASS_PATH=$CONF_DIR:$LIB_JARS
-    STDOUT_FILE=$LOG_DIR/passiontec.out
+    STDOUT_FILE=$LOG_DIR/test.out
     start_completely_flag="(Server start succ|Tomcat started on port|Server started succ)"
     REAL_LOG_DIR=/home/work/var/$MODULE_NAME/logs
 fi

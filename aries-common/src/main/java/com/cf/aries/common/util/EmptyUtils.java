@@ -8,7 +8,7 @@ import java.util.Map;
  * <p>
  * 校验Obj和Collection是否为空
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/15 11:39
  */
 public class EmptyUtils {

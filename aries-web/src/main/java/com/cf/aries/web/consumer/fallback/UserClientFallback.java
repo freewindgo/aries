@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 /**
  * UserClientFallback
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/15 16:00
  */
 @Slf4j

@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebInitParam;
  * DruidStatFilter
  * druid的过滤
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/14 15:24
  */
 

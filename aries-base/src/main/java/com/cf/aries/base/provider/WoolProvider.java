@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * WoolProvider
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/16 11:46
  */
 

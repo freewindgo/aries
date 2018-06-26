@@ -22,7 +22,7 @@ import org.apache.http.util.EntityUtils;
 /**
  * HttpClientUtils
  *
- * @author 于文硕 yuwenshuo@passiontec.cn
+ * @author 于文硕
  * @since 2018/5/25 17:19
  */
 
