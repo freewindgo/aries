@@ -67,16 +67,18 @@ public class DateUtils {
         }
     }
 
-    /**
+/**
      * 测试代码
      *
      * @param args
-     */
+     *//*
+
     public static void main(String[] args) {
         System.out.println(formatDate(FORMAT_FOR_DUSK, new Date()));
         DateTime dateTime = new DateTime();
         System.out.println(getDayMsg(DAY, new Date()));
 
     }
+*/
 
 }

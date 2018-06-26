@@ -113,7 +113,7 @@ public class DatabaseRoute extends AbstractRoutingDataSource {
                 return (Long)hotelId;
             }
         } catch (Exception var3) {
-            ;
+            return null;
         }
 
         return null;

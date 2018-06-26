@@ -99,7 +99,9 @@ public class HttpClientUtils {
             log.error("HttpClientUtils.doPost failed, error is {}",e);
         } finally {
             try {
-                response.close();
+                if(response != null){
+                    response.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -130,7 +132,9 @@ public class HttpClientUtils {
             e.printStackTrace();
         } finally {
             try {
-                response.close();
+                if(response != null){
+                    response.close();
+                }
             } catch (IOException e) {
                 log.error("HttpClientUtils.doPost doPostJson, error is {}",e);
             }
